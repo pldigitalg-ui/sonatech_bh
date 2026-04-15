@@ -4,184 +4,141 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sonatech | Celulares, Acessórios e Assistência</title>
-<meta name="description" content="Compre celulares, acessórios e utilidades com entrega rápida pelo WhatsApp. Sonatech - qualidade e confiança.">
+<title>Sonatech | Celulares e Acessórios</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter}
 body{background:#fff;color:#111}
 
 /* HEADER */
 header{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  padding:18px 50px;
+  padding:15px 40px;
   border-bottom:1px solid #eee;
-  position:sticky;
-  top:0;
-  background:#fff;
   z-index:999;
 }
 
-.logo{
-  font-size:22px;
-  font-weight:700;
-  color:#007aff;
-}
+.logo{font-weight:700;color:#007aff;font-size:20px}
 
 .menu{
   display:flex;
-  gap:30px;
-  position:relative;
+  gap:25px;
 }
 
 .menu a{
   text-decoration:none;
   color:#444;
   font-weight:500;
-  position:relative;
+  cursor:pointer;
 }
 
-.menu a::after{
-  content:"";
-  position:absolute;
-  bottom:-5px;
-  left:0;
-  width:0;
-  height:2px;
-  background:#007aff;
-  transition:.3s;
-}
-
-.menu a:hover::after{
-  width:100%;
-}
-
-/* DROPDOWN */
-.dropdown{
-  position:relative;
-}
-
-.dropdown-content{
-  display:none;
-  position:absolute;
-  top:30px;
-  background:#fff;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-  padding:15px;
-  border-radius:10px;
-}
-
-.dropdown:hover .dropdown-content{
-  display:block;
-}
-
-.dropdown-content a{
-  display:block;
-  padding:8px 15px;
-}
-
-/* HERO (NÃO ALTERADA) */
+/* HERO */
 .hero{
-  height:90vh;
+  height:100vh;
   background:url('hero.jpg') center/cover;
   display:flex;
   align-items:center;
   padding:0 60px;
 }
 
-.hero-content{max-width:500px;}
-.hero h1{font-size:48px;}
-.hero p{margin:15px 0;color:#555;}
+.hero h1{font-size:48px}
+.hero p{margin:15px 0}
 
 .btn{
   background:#007aff;
   color:#fff;
   padding:15px 25px;
   border-radius:30px;
-  text-decoration:none;
-  display:inline-block;
-  transition:.3s;
+  cursor:pointer;
 }
 
-.btn:hover{transform:scale(1.05);}
-
-/* PRODUTOS */
-.produtos{
-  padding:60px;
+/* SEÇÕES */
+.section{
+  padding:100px 50px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
+  gap:25px;
 }
 
 .card{
   border:1px solid #eee;
   padding:20px;
   border-radius:12px;
-  text-align:center;
-  opacity:0;
-  transform:translateY(20px) scale(.95);
-  transition:.6s;
+  cursor:pointer;
+  transition:.3s;
 }
 
-.card.show{
-  opacity:1;
-  transform:translateY(0) scale(1);
+.card:hover{
+  transform:scale(1.05);
 }
 
 .card img{
   width:100%;
-  height:180px;
+  height:160px;
   object-fit:contain;
 }
 
-.price{color:#007aff;font-weight:700;}
-
-.card button{
-  margin-top:10px;
-  background:#111;
-  color:#fff;
-  border:none;
-  padding:10px 20px;
-  border-radius:20px;
-  cursor:pointer;
-}
-
-/* DEPOIMENTOS */
-.depoimentos{
-  padding:60px;
-  background:#f7f7f7;
-}
-
-.dep-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.dep{
+/* MODAL LATERAL */
+.modal{
+  position:fixed;
+  top:0;
+  right:-400px;
+  width:350px;
+  height:100%;
   background:#fff;
+  box-shadow:-5px 0 20px rgba(0,0,0,0.1);
+  transition:.4s;
   padding:20px;
-  border-radius:10px;
+  z-index:9999;
 }
 
-/* WHATS */
+.modal.active{
+  right:0;
+}
+
+.modal img{
+  width:100%;
+  margin-bottom:10px;
+}
+
+.modal input, .modal select{
+  width:100%;
+  padding:10px;
+  margin:5px 0;
+}
+
+/* BOTÕES */
+.btn-whats{
+  background:#0b5cff;
+  color:#fff;
+  padding:12px;
+  text-align:center;
+  margin-top:10px;
+  cursor:pointer;
+  border-radius:8px;
+}
+
+/* FLOAT */
 .whatsapp{
   position:fixed;
   bottom:20px;
   right:20px;
   background:#0b5cff;
   color:#fff;
-  padding:15px;
+  padding:16px;
   border-radius:50%;
-  font-size:22px;
-  cursor:pointer;
+  font-size:20px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 .topo{
@@ -203,114 +160,117 @@ header{
   <div class="logo">Sonatech</div>
 
   <nav class="menu">
-    <a href="#">Todos</a>
-    <a href="#">Celulares</a>
-    <a href="#">Capinhas</a>
-    <a href="#">Películas</a>
-    <a href="#">Carregadores</a>
-
-    <div class="dropdown">
-      <a href="#">Utilidades ▾</a>
-      <div class="dropdown-content">
-        <a href="#">Fones</a>
-        <a href="#">Caixa de Som</a>
-        <a href="#">Garrafinhas</a>
-      </div>
-    </div>
+    <a onclick="scrollToSection('celulares')">Celulares</a>
+    <a onclick="scrollToSection('capinhas')">Capinhas</a>
+    <a onclick="scrollToSection('peliculas')">Películas</a>
+    <a onclick="scrollToSection('carregadores')">Carregadores</a>
+    <a onclick="scrollToSection('utilidades')">Utilidades</a>
   </nav>
 </header>
 
-<!-- HERO MANTIDA -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
+  <div>
     <h1>Seu celular novo começa aqui</h1>
     <p>Entrega rápida direto no WhatsApp</p>
-    <a href="#" class="btn" onclick="abrirWhats()">Comprar agora</a>
+    <div class="btn" onclick="scrollToSection('celulares')">Ver produtos</div>
   </div>
 </section>
 
-<!-- PRODUTOS -->
-<section class="produtos">
-  <div class="grid" id="gridProdutos">
+<!-- CELULARES -->
+<section id="celulares" class="section">
+  <h2>Celulares</h2>
+  <div class="grid">
 
-    <!-- 20 PRODUTOS -->
-    <script>
-      const produtos = [
-        ["iphone11.jpg","iPhone 11",1999],
-        ["iphone12.jpg","iPhone 12",2499],
-        ["xiaomi12.jpg","Xiaomi 12",1799],
-        ["capinha1.jpg","Capinha Premium",29],
-        ["capinha2.jpg","Capinha Anti Impacto",39],
-        ["pelicula1.jpg","Película Vidro",20],
-        ["pelicula2.jpg","Película 3D",25],
-        ["carregador1.jpg","Carregador Turbo",59],
-        ["carregador2.jpg","Carregador Original",79],
-        ["fone1.jpg","Fone Bluetooth",89],
-        ["fone2.jpg","AirPods Genérico",120],
-        ["caixa1.jpg","Caixa JBL Mini",149],
-        ["caixa2.jpg","Caixa Bluetooth Pro",199],
-        ["garrafa1.jpg","Garrafa Térmica",49],
-        ["garrafa2.jpg","Garrafa Premium",69],
-        ["smartwatch1.jpg","Smartwatch X",129],
-        ["smartwatch2.jpg","Smartwatch Pro",199],
-        ["suporte1.jpg","Suporte Veicular",35],
-        ["cabo1.jpg","Cabo USB-C",25],
-        ["cabo2.jpg","Cabo iPhone",30],
-      ]
+    <div class="card" onclick="abrirModal('iPhone 11','iphone11.jpg','128GB, ótimo estado',1999)">
+      <img src="iphone11.jpg">
+      <p>iPhone 11</p>
+    </div>
 
-      produtos.forEach(p=>{
-        document.write(`
-          <div class="card">
-            <img src="${p[0]}" alt="${p[1]}">
-            <h3>${p[1]}</h3>
-            <div class="price">R$ ${p[2]}</div>
-            <button onclick="add('${p[1]}',${p[2]})">Comprar</button>
-          </div>
-        `)
-      })
-    </script>
+    <div class="card" onclick="abrirModal('Xiaomi 12','xiaomi12.jpg','128GB, rápido',1799)">
+      <img src="xiaomi12.jpg">
+      <p>Xiaomi 12</p>
+    </div>
 
   </div>
 </section>
 
-<!-- DEPOIMENTOS -->
-<section class="depoimentos">
-  <h2>Clientes satisfeitos</h2>
-  <div class="dep-grid">
-    <div class="dep">“Entrega rápida e produto top!”</div>
-    <div class="dep">“Comprei pelo Whats e chegou no mesmo dia.”</div>
-    <div class="dep">“Preço melhor que na loja física.”</div>
+<!-- CAPINHAS -->
+<section id="capinhas" class="section">
+  <h2>Capinhas</h2>
+  <div class="grid">
+
+    <div class="card" onclick="abrirModal('Capinha Premium','capinha1.jpg','Proteção total',29)">
+      <img src="capinha1.jpg">
+      <p>Capinha Premium</p>
+    </div>
+
   </div>
 </section>
+
+<!-- UTILIDADES -->
+<section id="utilidades" class="section">
+  <h2>Utilidades</h2>
+  <div class="grid">
+
+    <div class="card" onclick="abrirModal('Fone Bluetooth','fone1.jpg','Alta qualidade',89)">
+      <img src="fone1.jpg">
+      <p>Fone Bluetooth</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <img id="modalImg">
+  <h3 id="modalNome"></h3>
+  <p id="modalDesc"></p>
+
+  <input type="text" id="nome" placeholder="Seu nome">
+  <input type="text" id="endereco" placeholder="Endereço">
+
+  <select id="pagamento">
+    <option>PIX</option>
+    <option>Crédito</option>
+    <option>Débito</option>
+  </select>
+
+  <div class="btn-whats" onclick="enviarPedido()">Finalizar no WhatsApp</div>
+</div>
 
 <div class="whatsapp" onclick="abrirWhats()">💬</div>
 <div class="topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
 
 <script>
-// animação scroll
-const cards = document.querySelectorAll(".card")
-window.addEventListener("scroll", ()=>{
-  cards.forEach(c=>{
-    let top = c.getBoundingClientRect().top
-    if(top < window.innerHeight - 50){
-      c.classList.add("show")
-    }
-  })
-})
+let produtoAtual = {}
 
-// carrinho
-let carrinho=[]
-function add(n,p){
-  carrinho.push({n,p})
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'})
 }
 
-// whatsapp
-function abrirWhats(){
-  let msg="Pedido:%0A"
-  carrinho.forEach(i=>{
-    msg+=`- ${i.n} R$${i.p}%0A`
-  })
+function abrirModal(nome,img,desc,preco){
+  produtoAtual = {nome,img,desc,preco}
+
+  document.getElementById("modal").classList.add("active")
+  document.getElementById("modalNome").innerText = nome
+  document.getElementById("modalDesc").innerText = desc
+  document.getElementById("modalImg").src = img
+}
+
+function enviarPedido(){
+  let nome = document.getElementById("nome").value
+  let end = document.getElementById("endereco").value
+  let pag = document.getElementById("pagamento").value
+
+  let msg = `Pedido:%0A${produtoAtual.nome}%0A${produtoAtual.desc}%0A`
+  msg += `Cliente: ${nome}%0AEndereço: ${end}%0APagamento: ${pag}`
+
   window.open(`https://wa.me/553183209688?text=${msg}`)
+}
+
+function abrirWhats(){
+  window.open(`https://wa.me/553183209688`)
 }
 </script>
 
