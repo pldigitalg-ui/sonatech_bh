@@ -1,278 +1,444 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escala Máxima | Premium Mobile Store</title>
+  <meta name="description" content="Loja premium de celulares, acessórios e assistência técnica com catálogo avançado, carrinho lateral e pedido via WhatsApp." />
+  <meta name="theme-color" content="#04060a" />
 
-<title>Sonatech | Celulares e Acessórios</title>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/>
+  </noscript>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter}
-body{background:#fff;color:#111}
-
-/* HEADER */
-header{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#fff;
-  display:flex;
-  justify-content:space-between;
-  padding:15px 40px;
-  border-bottom:1px solid #eee;
-  z-index:999;
-}
-
-.logo{font-weight:700;color:#007aff;font-size:20px}
-
-.menu{
-  display:flex;
-  gap:25px;
-}
-
-.menu a{
-  text-decoration:none;
-  color:#444;
-  font-weight:500;
-  cursor:pointer;
-}
-
-/* HERO */
-.hero{
-  height:100vh;
-  background:url('hero.jpg') center/cover;
-  display:flex;
-  align-items:center;
-  padding:0 60px;
-}
-
-.hero h1{font-size:48px}
-.hero p{margin:15px 0}
-
-.btn{
-  background:#007aff;
-  color:#fff;
-  padding:15px 25px;
-  border-radius:30px;
-  cursor:pointer;
-}
-
-/* SEÇÕES */
-.section{
-  padding:100px 50px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-
-.card{
-  border:1px solid #eee;
-  padding:20px;
-  border-radius:12px;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.card:hover{
-  transform:scale(1.05);
-}
-
-.card img{
-  width:100%;
-  height:160px;
-  object-fit:contain;
-}
-
-/* MODAL LATERAL */
-.modal{
-  position:fixed;
-  top:0;
-  right:-400px;
-  width:350px;
-  height:100%;
-  background:#fff;
-  box-shadow:-5px 0 20px rgba(0,0,0,0.1);
-  transition:.4s;
-  padding:20px;
-  z-index:9999;
-}
-
-.modal.active{
-  right:0;
-}
-
-.modal img{
-  width:100%;
-  margin-bottom:10px;
-}
-
-.modal input, .modal select{
-  width:100%;
-  padding:10px;
-  margin:5px 0;
-}
-
-/* BOTÕES */
-.btn-whats{
-  background:#0b5cff;
-  color:#fff;
-  padding:12px;
-  text-align:center;
-  margin-top:10px;
-  cursor:pointer;
-  border-radius:8px;
-}
-
-/* FLOAT */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#0b5cff;
-  color:#fff;
-  padding:16px;
-  border-radius:50%;
-  font-size:20px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.2);
-}
-
-.topo{
-  position:fixed;
-  bottom:90px;
-  right:20px;
-  background:#111;
-  color:#fff;
-  padding:10px;
-  border-radius:50%;
-  cursor:pointer;
-}
-</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<header>
-  <div class="logo">Sonatech</div>
-
-  <nav class="menu">
-    <a onclick="scrollToSection('celulares')">Celulares</a>
-    <a onclick="scrollToSection('capinhas')">Capinhas</a>
-    <a onclick="scrollToSection('peliculas')">Películas</a>
-    <a onclick="scrollToSection('carregadores')">Carregadores</a>
-    <a onclick="scrollToSection('utilidades')">Utilidades</a>
-  </nav>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>Seu celular novo começa aqui</h1>
-    <p>Entrega rápida direto no WhatsApp</p>
-    <div class="btn" onclick="scrollToSection('celulares')">Ver produtos</div>
+  <div class="site-loader" id="siteLoader">
+    <div class="loader-core">
+      <div class="loader-ring"></div>
+      <div class="loader-logo">EM</div>
+      <p>Carregando experiência premium...</p>
+    </div>
   </div>
-</section>
 
-<!-- CELULARES -->
-<section id="celulares" class="section">
-  <h2>Celulares</h2>
-  <div class="grid">
+  <div class="noise"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-    <div class="card" onclick="abrirModal('iPhone 11','iphone11.jpg','128GB, ótimo estado',1999)">
-      <img src="iphone11.jpg">
-      <p>iPhone 11</p>
+  <header class="site-header" id="topo">
+    <div class="container header-shell">
+      <a href="#hero" class="brand">
+        <div class="brand-icon">EM</div>
+        <div class="brand-copy">
+          <strong>Escala Máxima</strong>
+          <small>Premium Mobile Store</small>
+        </div>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="#hero">Início</a>
+        <a href="#showcase">Flagships</a>
+        <a href="#catalog">Catálogo</a>
+        <a href="#service">Assistência</a>
+        <a href="#premium">Experiência</a>
+        <a href="#contact">Contato</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="header-icon" id="openSearch" aria-label="Busca">⌕</button>
+        <button class="cart-chip" id="openCart">
+          <span>Carrinho</span>
+          <b id="cartCount">0</b>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
 
-    <div class="card" onclick="abrirModal('Xiaomi 12','xiaomi12.jpg','128GB, rápido',1799)">
-      <img src="xiaomi12.jpg">
-      <p>Xiaomi 12</p>
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#hero">Início</a>
+      <a href="#showcase">Flagships</a>
+      <a href="#catalog">Catálogo</a>
+      <a href="#service">Assistência</a>
+      <a href="#premium">Experiência</a>
+      <a href="#contact">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="hero">
+      <div class="hero-slider">
+        <article class="hero-slide active" style="background-image:url('img/hero-1.jpg')">
+          <div class="hero-layer"></div>
+          <div class="hero-grid-overlay"></div>
+          <div class="hero-glow hero-glow-1"></div>
+          <div class="container hero-content">
+            <div class="hero-copy reveal">
+              <span class="eyebrow">premium experience</span>
+              <h1>Loja de celulares com presença de marca grande.</h1>
+              <p>
+                Um site de nível profissional, com hero cinematográfica, catálogo premium,
+                carrinho elegante e acabamento para vender alto.
+              </p>
+              <div class="hero-actions">
+                <a href="#catalog" class="btn btn-primary">Explorar catálogo</a>
+                <a href="#showcase" class="btn btn-outline">Ver destaques</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" style="background-image:url('img/hero-2.jpg')">
+          <div class="hero-layer"></div>
+          <div class="hero-grid-overlay"></div>
+          <div class="hero-glow hero-glow-2"></div>
+          <div class="container hero-content">
+            <div class="hero-copy reveal">
+              <span class="eyebrow">flagship design</span>
+              <h2>Visual forte para vender celular, acessório e assistência.</h2>
+              <p>
+                Layout mais limpo, mais premium e muito mais próximo de loja grande do que de site básico.
+              </p>
+              <div class="hero-actions">
+                <a href="#catalog" class="btn btn-primary">Comprar agora</a>
+                <a href="#service" class="btn btn-outline">Pedir orçamento</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero-slide" style="background-image:url('img/hero-3.jpg')">
+          <div class="hero-layer"></div>
+          <div class="hero-grid-overlay"></div>
+          <div class="hero-glow hero-glow-3"></div>
+          <div class="container hero-content">
+            <div class="hero-copy reveal">
+              <span class="eyebrow">luxury digital catalog</span>
+              <h2>Catálogo profissional com carrinho lateral e WhatsApp integrado.</h2>
+              <p>
+                Organização, impacto visual e uma experiência muito mais cara para a loja parecer maior.
+              </p>
+              <div class="hero-actions">
+                <a href="#premium" class="btn btn-primary">Ver experiência</a>
+                <a href="#contact" class="btn btn-outline">Falar com a loja</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="hero-controls">
+        <button id="prevHero" aria-label="Anterior">‹</button>
+        <div id="heroDots" class="hero-dots"></div>
+        <button id="nextHero" aria-label="Próximo">›</button>
+      </div>
+
+      <div class="hero-bottom-bar">
+        <div class="container hero-bottom-inner">
+          <div class="mini-stat reveal">
+            <strong>15+</strong>
+            <span>Smartphones</span>
+          </div>
+          <div class="mini-stat reveal">
+            <strong>30+</strong>
+            <span>Acessórios</span>
+          </div>
+          <div class="mini-stat reveal">
+            <strong>Fast</strong>
+            <span>WhatsApp Checkout</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase-section section-pad" id="showcase">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow dark">flagship showcase</span>
+            <h2>Seções grandes para causar impacto.</h2>
+          </div>
+          <p>Visual premium, respiro e composição forte para passar valor alto.</p>
+        </div>
+
+        <div class="showcase-grid">
+          <article class="showcase-large reveal tilt-card">
+            <div class="showcase-copy">
+              <span>Destaque principal</span>
+              <h3>iPhone 13 128GB</h3>
+              <p>Produto premium em um bloco grande, limpo, forte e muito mais vendável.</p>
+              <button class="btn btn-dark product-quick" data-id="3">Ver produto</button>
+            </div>
+            <img src="img/celular-3.jpg" alt="iPhone 13">
+          </article>
+
+          <article class="showcase-card reveal tilt-card">
+            <div class="showcase-copy">
+              <span>Premium Samsung</span>
+              <h3>Galaxy S21 FE</h3>
+              <button class="btn btn-dark product-quick" data-id="6">Abrir</button>
+            </div>
+            <img src="img/celular-6.jpg" alt="Galaxy S21 FE">
+          </article>
+
+          <article class="showcase-card reveal tilt-card">
+            <div class="showcase-copy">
+              <span>Áudio Premium</span>
+              <h3>Speaker Max</h3>
+              <button class="btn btn-dark product-quick" data-id="35">Abrir</button>
+            </div>
+            <img src="img/caixa-5.jpg" alt="Speaker Max">
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="premium-strip">
+      <div class="container premium-strip-inner reveal">
+        <div class="premium-pill">Design premium</div>
+        <div class="premium-pill">Experiência mais cara</div>
+        <div class="premium-pill">Fluxo de compra rápido</div>
+        <div class="premium-pill">Site para vender alto</div>
+      </div>
+    </section>
+
+    <section class="catalog-section section-pad" id="catalog">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">smart catalog</span>
+            <h2>Catálogo premium e fácil de navegar.</h2>
+          </div>
+          <p>Filtro rápido, busca simples, produto bem apresentado e carrinho funcional.</p>
+        </div>
+
+        <div class="catalog-toolbar reveal">
+          <div class="filters" id="filterPills">
+            <button class="filter active" data-filter="all">Todos</button>
+            <button class="filter" data-filter="Celular">Celulares</button>
+            <button class="filter" data-filter="Capinha">Capinhas</button>
+            <button class="filter" data-filter="Fone">Fones</button>
+            <button class="filter" data-filter="Caixa de Som">Caixas</button>
+            <button class="filter" data-filter="Película">Películas</button>
+          </div>
+
+          <div class="search-wrap">
+            <input type="text" id="catalogSearch" placeholder="Buscar produto..." />
+          </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <section class="service-section section-pad" id="service">
+      <div class="container service-grid">
+        <article class="service-copy-panel reveal">
+          <span class="eyebrow dark">assistência premium</span>
+          <h2>Conserto com apresentação profissional.</h2>
+          <p>
+            Tela, bateria, conector, software e manutenção em uma área separada,
+            limpa e muito mais elegante do que misturar tudo no catálogo.
+          </p>
+
+          <div class="service-cards">
+            <div class="service-mini-card">Troca de tela</div>
+            <div class="service-mini-card">Troca de bateria</div>
+            <div class="service-mini-card">Conector</div>
+            <div class="service-mini-card">Software</div>
+          </div>
+        </article>
+
+        <form class="service-form reveal" id="assistForm">
+          <h3>Solicitar orçamento</h3>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="assistNome">Nome</label>
+              <input type="text" id="assistNome" required placeholder="Seu nome" />
+            </div>
+
+            <div class="field">
+              <label for="assistTelefone">Telefone</label>
+              <input type="text" id="assistTelefone" required placeholder="Seu telefone" />
+            </div>
+
+            <div class="field">
+              <label for="assistEndereco">Endereço</label>
+              <input type="text" id="assistEndereco" placeholder="Seu endereço" />
+            </div>
+
+            <div class="field">
+              <label for="assistModelo">Modelo do aparelho</label>
+              <input type="text" id="assistModelo" required placeholder="Ex: iPhone 12" />
+            </div>
+
+            <div class="field full">
+              <label for="assistProblema">Descreva o problema</label>
+              <textarea id="assistProblema" rows="5" required placeholder="Ex: tela trincada, bateria fraca, aparelho não liga..."></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Enviar orçamento no WhatsApp</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="premium-section section-pad" id="premium">
+      <div class="container">
+        <div class="section-heading center reveal">
+          <span class="eyebrow dark">luxury structure</span>
+          <h2>Uma estrutura para passar valor alto.</h2>
+          <p>Esse é o tipo de site que parece caro antes mesmo do cliente ler tudo.</p>
+        </div>
+
+        <div class="premium-grid">
+          <article class="premium-card reveal">
+            <h3>Hero cinematográfica</h3>
+            <p>Entrada forte, ampla e marcante para valorizar o projeto.</p>
+          </article>
+          <article class="premium-card reveal">
+            <h3>Menu executivo</h3>
+            <p>Mais limpo, mais refinado, muito menos cara de template.</p>
+          </article>
+          <article class="premium-card reveal">
+            <h3>Catálogo refinado</h3>
+            <p>Produto melhor apresentado, com leitura mais clara e forte.</p>
+          </article>
+          <article class="premium-card reveal">
+            <h3>Carrinho lateral</h3>
+            <p>Fluxo simples para compra rápida e experiência moderna.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section section-pad-bottom" id="contact">
+      <div class="container contact-grid">
+        <article class="contact-card contact-dark reveal">
+          <span class="eyebrow">contato</span>
+          <h2>Atendimento rápido e visual profissional.</h2>
+          <p>Pedido, catálogo e assistência integrados em um mesmo site premium.</p>
+          <a href="https://wa.me/553183209688" target="_blank" rel="noopener" class="btn btn-primary">
+            Chamar no WhatsApp
+          </a>
+        </article>
+
+        <article class="contact-card contact-light reveal">
+          <span class="eyebrow dark">localização</span>
+          <h2>Venha até a loja</h2>
+          <p>Rua Santo Inácio de Loyola, 391 - Jardim Felicidade</p>
+          <div class="map-wrap">
+            <iframe
+              title="Mapa da loja"
+              src="https://www.google.com/maps?q=Rua%20Santo%20In%C3%A1cio%20de%20Loyola%20391%20Jardim%20Felicidade&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Escala Máxima</strong>
+        <p>Premium Mobile Store</p>
+      </div>
+      <a href="https://wa.me/553183209688" target="_blank" rel="noopener">WhatsApp: (31) 8320-9688</a>
+    </div>
+  </footer>
+
+  <button class="floating-whatsapp" onclick="window.open('https://wa.me/553183209688','_blank')" aria-label="WhatsApp">
+    <span>WhatsApp</span>
+  </button>
+
+  <button class="back-top" id="backTop" aria-label="Voltar ao topo">↑</button>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="product-drawer" id="productDrawer">
+    <button class="drawer-close" id="closeProductDrawer">×</button>
+    <div class="drawer-image">
+      <img id="drawerImage" src="" alt="Produto selecionado" />
+    </div>
+    <div class="drawer-body">
+      <span class="drawer-category" id="drawerCategory"></span>
+      <h3 id="drawerTitle"></h3>
+      <p class="drawer-price" id="drawerPrice"></p>
+      <p class="drawer-desc" id="drawerDesc"></p>
+      <ul class="drawer-specs" id="drawerSpecs"></ul>
+
+      <div class="drawer-actions">
+        <button class="btn btn-primary" id="addToCartBtn">Adicionar ao carrinho</button>
+        <button class="btn btn-light" id="buyNowBtn">Comprar agora</button>
+      </div>
+    </div>
+  </aside>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <button class="drawer-close" id="closeCartDrawer">×</button>
+
+    <div class="cart-head">
+      <span class="eyebrow dark">carrinho</span>
+      <h3>Seus produtos</h3>
     </div>
 
-  </div>
-</section>
+    <div class="cart-items" id="cartItems"></div>
 
-<!-- CAPINHAS -->
-<section id="capinhas" class="section">
-  <h2>Capinhas</h2>
-  <div class="grid">
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
 
-    <div class="card" onclick="abrirModal('Capinha Premium','capinha1.jpg','Proteção total',29)">
-      <img src="capinha1.jpg">
-      <p>Capinha Premium</p>
+      <form id="checkoutForm" class="checkout-form">
+        <div class="field">
+          <label for="checkoutNome">Nome</label>
+          <input type="text" id="checkoutNome" required placeholder="Seu nome" />
+        </div>
+
+        <div class="field">
+          <label for="checkoutEndereco">Endereço</label>
+          <input type="text" id="checkoutEndereco" required placeholder="Seu endereço" />
+        </div>
+
+        <div class="field">
+          <label>Pagamento</label>
+          <div class="payment-options">
+            <label><input type="radio" name="pagamento" value="Crédito" checked> Crédito</label>
+            <label><input type="radio" name="pagamento" value="Débito"> Débito</label>
+            <label><input type="radio" name="pagamento" value="Pix"> Pix</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Finalizar no WhatsApp</button>
+      </form>
     </div>
+  </aside>
 
-  </div>
-</section>
-
-<!-- UTILIDADES -->
-<section id="utilidades" class="section">
-  <h2>Utilidades</h2>
-  <div class="grid">
-
-    <div class="card" onclick="abrirModal('Fone Bluetooth','fone1.jpg','Alta qualidade',89)">
-      <img src="fone1.jpg">
-      <p>Fone Bluetooth</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <img id="modalImg">
-  <h3 id="modalNome"></h3>
-  <p id="modalDesc"></p>
-
-  <input type="text" id="nome" placeholder="Seu nome">
-  <input type="text" id="endereco" placeholder="Endereço">
-
-  <select id="pagamento">
-    <option>PIX</option>
-    <option>Crédito</option>
-    <option>Débito</option>
-  </select>
-
-  <div class="btn-whats" onclick="enviarPedido()">Finalizar no WhatsApp</div>
-</div>
-
-<div class="whatsapp" onclick="abrirWhats()">💬</div>
-<div class="topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
-
-<script>
-let produtoAtual = {}
-
-function scrollToSection(id){
-  document.getElementById(id).scrollIntoView({behavior:'smooth'})
-}
-
-function abrirModal(nome,img,desc,preco){
-  produtoAtual = {nome,img,desc,preco}
-
-  document.getElementById("modal").classList.add("active")
-  document.getElementById("modalNome").innerText = nome
-  document.getElementById("modalDesc").innerText = desc
-  document.getElementById("modalImg").src = img
-}
-
-function enviarPedido(){
-  let nome = document.getElementById("nome").value
-  let end = document.getElementById("endereco").value
-  let pag = document.getElementById("pagamento").value
-
-  let msg = `Pedido:%0A${produtoAtual.nome}%0A${produtoAtual.desc}%0A`
-  msg += `Cliente: ${nome}%0AEndereço: ${end}%0APagamento: ${pag}`
-
-  window.open(`https://wa.me/553183209688?text=${msg}`)
-}
-
-function abrirWhats(){
-  window.open(`https://wa.me/553183209688`)
-}
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
