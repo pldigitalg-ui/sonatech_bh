@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sonatech | Celulares, Acessórios e Assistência</title>
-<meta name="description" content="Compre celulares, acessórios e utilidades com entrega rápida pelo WhatsApp. Sonatech - qualidade e confiança.">
+<title>iPhone 11 | Sonatech</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -13,185 +12,67 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter;}
 body{background:#fff;color:#111}
 
-/* HEADER */
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 50px;
-  border-bottom:1px solid #eee;
-  position:sticky;
-  top:0;
-  background:#fff;
-  z-index:999;
+/* LAYOUT */
+.container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  padding:60px;
 }
 
-.logo{
-  font-size:22px;
-  font-weight:700;
+/* IMAGEM */
+.img-produto img{
+  width:100%;
+  border-radius:10px;
+}
+
+/* INFO */
+.info h1{
+  font-size:32px;
+}
+
+.price{
+  font-size:26px;
   color:#007aff;
+  margin:15px 0;
 }
 
-.menu{
+/* VARIAÇÕES */
+.variacoes{
   display:flex;
-  gap:30px;
-  position:relative;
+  gap:10px;
+  margin:20px 0;
 }
 
-.menu a{
-  text-decoration:none;
-  color:#444;
-  font-weight:500;
-  position:relative;
+.variacoes button{
+  padding:10px 15px;
+  border:1px solid #ccc;
+  background:#fff;
+  cursor:pointer;
 }
 
-.menu a::after{
-  content:"";
-  position:absolute;
-  bottom:-5px;
+.variacoes button.active{
+  border:2px solid #007aff;
+}
+
+/* URGÊNCIA */
+.urgencia{
+  color:red;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+/* BOTÃO FIXO */
+.buy{
+  position:fixed;
+  bottom:0;
   left:0;
-  width:0;
-  height:2px;
-  background:#007aff;
-  transition:.3s;
-}
-
-.menu a:hover::after{
   width:100%;
-}
-
-/* DROPDOWN */
-.dropdown{
-  position:relative;
-}
-
-.dropdown-content{
-  display:none;
-  position:absolute;
-  top:30px;
-  background:#fff;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-  padding:15px;
-  border-radius:10px;
-}
-
-.dropdown:hover .dropdown-content{
-  display:block;
-}
-
-.dropdown-content a{
-  display:block;
-  padding:8px 15px;
-}
-
-/* HERO (NÃO ALTERADA) */
-.hero{
-  height:90vh;
-  background:url('hero.jpg') center/cover;
-  display:flex;
-  align-items:center;
-  padding:0 60px;
-}
-
-.hero-content{max-width:500px;}
-.hero h1{font-size:48px;}
-.hero p{margin:15px 0;color:#555;}
-
-.btn{
   background:#007aff;
   color:#fff;
-  padding:15px 25px;
-  border-radius:30px;
-  text-decoration:none;
-  display:inline-block;
-  transition:.3s;
-}
-
-.btn:hover{transform:scale(1.05);}
-
-/* PRODUTOS */
-.produtos{
-  padding:60px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
-}
-
-.card{
-  border:1px solid #eee;
-  padding:20px;
-  border-radius:12px;
   text-align:center;
-  opacity:0;
-  transform:translateY(20px) scale(.95);
-  transition:.6s;
-}
-
-.card.show{
-  opacity:1;
-  transform:translateY(0) scale(1);
-}
-
-.card img{
-  width:100%;
-  height:180px;
-  object-fit:contain;
-}
-
-.price{color:#007aff;font-weight:700;}
-
-.card button{
-  margin-top:10px;
-  background:#111;
-  color:#fff;
-  border:none;
-  padding:10px 20px;
-  border-radius:20px;
-  cursor:pointer;
-}
-
-/* DEPOIMENTOS */
-.depoimentos{
-  padding:60px;
-  background:#f7f7f7;
-}
-
-.dep-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.dep{
-  background:#fff;
   padding:20px;
-  border-radius:10px;
-}
-
-/* WHATS */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#0b5cff;
-  color:#fff;
-  padding:15px;
-  border-radius:50%;
-  font-size:22px;
-  cursor:pointer;
-}
-
-.topo{
-  position:fixed;
-  bottom:90px;
-  right:20px;
-  background:#111;
-  color:#fff;
-  padding:10px;
-  border-radius:50%;
+  font-size:18px;
   cursor:pointer;
 }
 </style>
@@ -199,117 +80,59 @@ header{
 
 <body>
 
-<header>
-  <div class="logo">Sonatech</div>
+<div class="container">
 
-  <nav class="menu">
-    <a href="#">Todos</a>
-    <a href="#">Celulares</a>
-    <a href="#">Capinhas</a>
-    <a href="#">Películas</a>
-    <a href="#">Carregadores</a>
+  <div class="img-produto">
+    <img src="iphone11.jpg" id="imgPrincipal">
+  </div>
 
-    <div class="dropdown">
-      <a href="#">Utilidades ▾</a>
-      <div class="dropdown-content">
-        <a href="#">Fones</a>
-        <a href="#">Caixa de Som</a>
-        <a href="#">Garrafinhas</a>
-      </div>
+  <div class="info">
+    <h1>iPhone 11 128GB</h1>
+
+    <div class="price">R$ 1.999</div>
+
+    <div class="variacoes">
+      <button onclick="selecionar(this,'Preto')">Preto</button>
+      <button onclick="selecionar(this,'Branco')">Branco</button>
+      <button onclick="selecionar(this,'Vermelho')">Vermelho</button>
     </div>
-  </nav>
-</header>
 
-<!-- HERO MANTIDA -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Seu celular novo começa aqui</h1>
-    <p>Entrega rápida direto no WhatsApp</p>
-    <a href="#" class="btn" onclick="abrirWhats()">Comprar agora</a>
-  </div>
-</section>
+    <div class="urgencia" id="urgencia"></div>
 
-<!-- PRODUTOS -->
-<section class="produtos">
-  <div class="grid" id="gridProdutos">
-
-    <!-- 20 PRODUTOS -->
-    <script>
-      const produtos = [
-        ["iphone11.jpg","iPhone 11",1999],
-        ["iphone12.jpg","iPhone 12",2499],
-        ["xiaomi12.jpg","Xiaomi 12",1799],
-        ["capinha1.jpg","Capinha Premium",29],
-        ["capinha2.jpg","Capinha Anti Impacto",39],
-        ["pelicula1.jpg","Película Vidro",20],
-        ["pelicula2.jpg","Película 3D",25],
-        ["carregador1.jpg","Carregador Turbo",59],
-        ["carregador2.jpg","Carregador Original",79],
-        ["fone1.jpg","Fone Bluetooth",89],
-        ["fone2.jpg","AirPods Genérico",120],
-        ["caixa1.jpg","Caixa JBL Mini",149],
-        ["caixa2.jpg","Caixa Bluetooth Pro",199],
-        ["garrafa1.jpg","Garrafa Térmica",49],
-        ["garrafa2.jpg","Garrafa Premium",69],
-        ["smartwatch1.jpg","Smartwatch X",129],
-        ["smartwatch2.jpg","Smartwatch Pro",199],
-        ["suporte1.jpg","Suporte Veicular",35],
-        ["cabo1.jpg","Cabo USB-C",25],
-        ["cabo2.jpg","Cabo iPhone",30],
-      ]
-
-      produtos.forEach(p=>{
-        document.write(`
-          <div class="card">
-            <img src="${p[0]}" alt="${p[1]}">
-            <h3>${p[1]}</h3>
-            <div class="price">R$ ${p[2]}</div>
-            <button onclick="add('${p[1]}',${p[2]})">Comprar</button>
-          </div>
-        `)
-      })
-    </script>
+    <p>
+      Aparelho original, testado, com garantia.
+      Ideal para uso diário com desempenho rápido.
+    </p>
 
   </div>
-</section>
 
-<!-- DEPOIMENTOS -->
-<section class="depoimentos">
-  <h2>Clientes satisfeitos</h2>
-  <div class="dep-grid">
-    <div class="dep">“Entrega rápida e produto top!”</div>
-    <div class="dep">“Comprei pelo Whats e chegou no mesmo dia.”</div>
-    <div class="dep">“Preço melhor que na loja física.”</div>
-  </div>
-</section>
+</div>
 
-<div class="whatsapp" onclick="abrirWhats()">💬</div>
-<div class="topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+<div class="buy" onclick="comprar()">COMPRAR AGORA NO WHATSAPP</div>
 
 <script>
-// animação scroll
-const cards = document.querySelectorAll(".card")
-window.addEventListener("scroll", ()=>{
-  cards.forEach(c=>{
-    let top = c.getBoundingClientRect().top
-    if(top < window.innerHeight - 50){
-      c.classList.add("show")
-    }
-  })
-})
+let corSelecionada = "Preto"
 
-// carrinho
-let carrinho=[]
-function add(n,p){
-  carrinho.push({n,p})
+// selecionar cor
+function selecionar(btn, cor){
+  document.querySelectorAll(".variacoes button")
+    .forEach(b=>b.classList.remove("active"))
+
+  btn.classList.add("active")
+  corSelecionada = cor
 }
 
+// urgência fake dinâmica
+let estoque = Math.floor(Math.random()*5)+1
+document.getElementById("urgencia").innerText = 
+  "⚠️ Restam apenas " + estoque + " unidades"
+
 // whatsapp
-function abrirWhats(){
-  let msg="Pedido:%0A"
-  carrinho.forEach(i=>{
-    msg+=`- ${i.n} R$${i.p}%0A`
-  })
+function comprar(){
+  let msg = `Quero comprar:%0A`
+  msg += `iPhone 11%0A`
+  msg += `Cor: ${corSelecionada}`
+
   window.open(`https://wa.me/553183209688?text=${msg}`)
 }
 </script>
