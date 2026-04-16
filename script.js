@@ -81,7 +81,8 @@ const assistForm = document.getElementById("assistForm");
 
 const siteHeader = document.querySelector(".site-header");
 const cursorGlow = document.getElementById("cursorGlow");
-const siteLoader = document.getElementById("siteLoader");
+const signatureImage = document.getElementById("signatureImage");
+const signatureItems = document.querySelectorAll(".signature-item");
 
 let activeFilter = "all";
 let selectedProduct = null;
@@ -449,33 +450,8 @@ function initReveal(){
   reveals.forEach(el => observer.observe(el));
 }
 
-function initTiltCards(){
-  const cards = document.querySelectorAll(".tilt-card");
-
-  cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = ((y - centerY) / centerY) * -4;
-      const rotateY = ((x - centerX) / centerX) * 4;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)`;
-    });
-  });
-}
-
 function initCursorGlow(){
   if(!cursorGlow) return;
-
   document.addEventListener("mousemove", (e) => {
     cursorGlow.style.left = `${e.clientX}px`;
     cursorGlow.style.top = `${e.clientY}px`;
@@ -489,9 +465,31 @@ function initParallaxHero(){
 
     const moveX = (e.clientX / window.innerWidth - 0.5) * 10;
     const moveY = (e.clientY / window.innerHeight - 0.5) * 10;
-
     activeSlide.style.backgroundPosition = `calc(50% + ${moveX}px) calc(50% + ${moveY}px)`;
   });
+}
+
+function initSignatureScroll(){
+  if(!signatureImage || !signatureItems.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        signatureItems.forEach(item => item.classList.remove("active"));
+        entry.target.classList.add("active");
+        const image = entry.target.getAttribute("data-image");
+        if(image){
+          signatureImage.style.opacity = "0";
+          setTimeout(() => {
+            signatureImage.src = image;
+            signatureImage.style.opacity = "1";
+          }, 180);
+        }
+      }
+    });
+  }, { threshold: 0.55 });
+
+  signatureItems.forEach(item => observer.observe(item));
 }
 
 window.addEventListener("load", () => {
@@ -506,6 +504,6 @@ restartSlider();
 renderProducts();
 updateCartUI();
 initReveal();
-initTiltCards();
 initCursorGlow();
 initParallaxHero();
+initSignatureScroll();
