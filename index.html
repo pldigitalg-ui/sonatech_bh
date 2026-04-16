@@ -3,282 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xiaomi Store | Smartphones, Acessórios e Assistência Técnica</title>
-  <meta name="description" content="Loja de celulares, acessórios e assistência técnica com visual premium, ofertas em destaque e atendimento rápido no WhatsApp." />
-  <meta name="keywords" content="xiaomi, celulares, loja de celular, acessórios, assistência técnica, smartphone, capinhas, carregadores" />
+  <title>Xiaomi Store | Celulares, Acessórios e Assistência Técnica</title>
+  <meta name="description" content="Loja de celulares, acessórios e assistência técnica com visual premium, compra rápida e atendimento direto no WhatsApp." />
+  <meta name="keywords" content="xiaomi, celular, loja de celular, assistência técnica, acessórios, smartphones, capinha, carregador" />
+  <meta name="author" content="PL Digital" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#080d18" />
-  <meta property="og:title" content="Xiaomi Store | Smartphones, Acessórios e Assistência Técnica" />
-  <meta property="og:description" content="Compre celulares, acessórios e peça orçamento pelo WhatsApp com atendimento rápido." />
+  <meta name="theme-color" content="#070b14" />
+
+  <meta property="og:title" content="Xiaomi Store | Celulares, Acessórios e Assistência Técnica" />
+  <meta property="og:description" content="Compra rápida, ofertas e orçamento direto no WhatsApp." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://placehold.co/1200x630/0c1220/ffffff?text=Xiaomi+Store" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#060b14;
-      --bg2:#0a1020;
-      --panel:rgba(255,255,255,.05);
-      --panel2:rgba(255,255,255,.08);
-      --line:rgba(255,255,255,.1);
-      --text:#fff;
-      --muted:#b7c2d7;
-      --primary:#2f8cff;
-      --primary2:#66b7ff;
-      --green:#20c76f;
-      --shadow:0 18px 60px rgba(0,0,0,.35);
-      --radius:24px;
-      --radius-sm:18px;
-      --container:1220px;
-    }
 
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Inter',sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(47,140,255,.14), transparent 24%),
-        radial-gradient(circle at top right, rgba(102,183,255,.08), transparent 20%),
-        linear-gradient(180deg,#050911 0%, #09101a 100%);
-      color:var(--text);
-      line-height:1.5;
-      overflow-x:hidden;
-    }
-    img{display:block;max-width:100%}
-    a{text-decoration:none;color:inherit}
-    button{font:inherit;border:none;cursor:pointer}
-    .container{width:min(100% - 32px,var(--container));margin-inline:auto}
-
-    .site-header{
-      position:sticky;top:0;z-index:1000;
-      background:rgba(6,11,20,.86);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid var(--line);
-    }
-    .header-wrap{
-      min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px;
-    }
-    .logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.03em}
-    .logo-badge{
-      width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
-      background:linear-gradient(135deg,var(--primary),var(--primary2));box-shadow:0 12px 30px rgba(47,140,255,.35)
-    }
-    .logo-text{font-size:1.08rem}
-    .desktop-nav{display:flex;align-items:center;gap:28px}
-    .desktop-nav a{color:var(--muted);font-weight:600;transition:.25s ease}
-    .desktop-nav a:hover{color:#fff}
-    .header-actions{display:flex;align-items:center;gap:12px}
-    .menu-toggle{
-      display:none;width:48px;height:48px;border-radius:14px;align-items:center;justify-content:center;
-      flex-direction:column;gap:5px;background:rgba(255,255,255,.06);border:1px solid var(--line)
-    }
-    .menu-toggle span{width:20px;height:2px;background:#fff;border-radius:999px}
-    .mobile-menu{display:none;flex-direction:column;gap:14px;padding:0 16px 18px;background:#08101b;border-top:1px solid var(--line)}
-    .mobile-menu.active{display:flex}
-    .mobile-menu a{color:var(--muted);font-weight:600}
-
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;
-      border-radius:14px;font-weight:800;white-space:nowrap;transition:.25s ease
-    }
-    .btn:hover{transform:translateY(-2px)}
-    .btn-primary{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;box-shadow:0 14px 35px rgba(47,140,255,.3)}
-    .btn-outline{border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);color:#fff}
-    .btn-green{background:linear-gradient(135deg,#16b75a,#25de77);color:#fff;box-shadow:0 14px 35px rgba(22,183,90,.25)}
-    .btn-full{width:100%}
-
-    .hero{
-      min-height:92vh;position:relative;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line)
-    }
-    .hero-bg,.hero-slide{position:absolute;inset:0}
-    .hero-slide{
-      opacity:0;transform:scale(1.04);transition:opacity .8s ease,transform 1.4s ease;background-size:cover;background-position:center
-    }
-    .hero-slide.active{opacity:1;transform:scale(1)}
-    .hero-overlay{
-      position:absolute;inset:0;z-index:2;
-      background:
-        linear-gradient(90deg, rgba(4,7,14,.9) 0%, rgba(4,7,14,.75) 36%, rgba(4,7,14,.45) 100%),
-        linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.5));
-    }
-    .hero-content{position:relative;z-index:3;padding:120px 0 92px;max-width:760px}
-    .hero-badge{
-      display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;
-      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);font-weight:700;font-size:.92rem;margin-bottom:18px
-    }
-    .hero h1{font-size:clamp(2.6rem,5.4vw,5rem);line-height:.94;letter-spacing:-.055em;max-width:10ch;margin-bottom:16px}
-    .hero p{max-width:560px;font-size:1.06rem;color:#dde7f6;margin-bottom:24px}
-    .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:22px}
-    .hero-mini{display:flex;flex-wrap:wrap;gap:10px}
-    .hero-mini span{padding:10px 14px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);border-radius:999px;color:#dce5f5;font-size:.9rem;font-weight:600}
-    .hero-dots{position:absolute;z-index:4;left:50%;bottom:26px;transform:translateX(-50%);display:flex;gap:10px}
-    .dot{width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,.32);border:1px solid rgba(255,255,255,.24)}
-    .dot.active{background:#fff}
-
-    .floating-cart{
-      position:fixed;top:96px;right:18px;z-index:1001;background:rgba(10,16,32,.9);backdrop-filter:blur(12px);
-      border:1px solid var(--line);box-shadow:var(--shadow);border-radius:16px;min-width:64px;height:64px;display:grid;place-items:center;font-weight:900
-    }
-    .floating-cart small{display:block;color:#9fc7ff;font-size:.75rem}
-
-    .section{padding:88px 0}
-    .section-head{max-width:760px;margin-bottom:34px}
-    .tag{display:inline-block;margin-bottom:12px;color:#9fc7ff;font-size:.9rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
-    .section-head h2{font-size:clamp(2rem,4vw,3.1rem);line-height:1.02;letter-spacing:-.045em;margin-bottom:12px}
-    .section-head p{color:var(--muted)}
-
-    .trust-bar{padding:18px 0;border-bottom:1px solid var(--line);background:rgba(255,255,255,.025)}
-    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .trust-item{min-height:58px;display:grid;place-items:center;text-align:center;padding:12px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-weight:700;color:#e2eaf8}
-
-    .promo-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
-    .promo-main,.promo-side{
-      border:1px solid var(--line);border-radius:28px;overflow:hidden;position:relative;box-shadow:var(--shadow)
-    }
-    .promo-main{min-height:360px;background:url('https://placehold.co/1400x900/0c1322/ffffff?text=Oferta+Principal') center/cover no-repeat}
-    .promo-side{min-height:360px;background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));padding:26px}
-    .promo-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.68))}
-    .promo-content{position:absolute;left:28px;right:28px;bottom:28px;z-index:2}
-    .promo-content h3{font-size:clamp(1.8rem,3vw,2.8rem);line-height:1;letter-spacing:-.04em;margin-bottom:10px}
-    .promo-content p{max-width:500px;color:#dbe5f4;margin-bottom:18px}
-    .promo-side .mini-offer{padding:18px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.04);margin-bottom:16px}
-    .promo-side .mini-offer h4{font-size:1.1rem;margin-bottom:6px}
-    .promo-side .mini-offer p{color:var(--muted);margin-bottom:12px}
-
-    .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}
-    .filter-chip{
-      padding:12px 16px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#dce6f7;font-weight:700
-    }
-    .filter-chip.active{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;border-color:transparent}
-
-    .products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-    .product-card{
-      border-radius:26px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));box-shadow:var(--shadow)
-    }
-    .product-image{position:relative;aspect-ratio:1/1;overflow:hidden}
-    .product-image img{width:100%;height:100%;object-fit:cover;transition:.35s ease}
-    .product-card:hover .product-image img{transform:scale(1.03)}
-    .product-badge{position:absolute;top:14px;left:14px;padding:9px 12px;border-radius:999px;background:rgba(6,11,20,.78);border:1px solid rgba(255,255,255,.16);font-size:.82rem;font-weight:800}
-    .product-actions{position:absolute;right:14px;top:14px;display:flex;flex-direction:column;gap:10px}
-    .icon-pill{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(6,11,20,.78);border:1px solid rgba(255,255,255,.16);font-size:.9rem}
-    .product-body{padding:22px}
-    .product-body h3{font-size:1.14rem;margin-bottom:8px}
-    .product-body p{color:var(--muted);font-size:.95rem;min-height:48px;margin-bottom:14px}
-    .price-row{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:18px}
-    .price strong{display:block;font-size:1.35rem;letter-spacing:-.03em}
-    .price small{color:#9fc7ff;font-weight:700}
-
-    .showcase-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-    .showcase-card{border-radius:24px;overflow:hidden;border:1px solid var(--line);background:rgba(255,255,255,.04);box-shadow:var(--shadow)}
-    .showcase-card img{aspect-ratio:1.15/1;object-fit:cover;width:100%}
-    .showcase-card .info{padding:18px}
-    .showcase-card .info h3{margin-bottom:6px}
-    .showcase-card .info p{color:var(--muted)}
-
-    .split-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:center}
-    .box-panel{padding:30px;border-radius:28px;border:1px solid var(--line);background:rgba(255,255,255,.04);box-shadow:var(--shadow)}
-    .box-panel h2{font-size:clamp(2rem,4vw,3rem);line-height:1.02;letter-spacing:-.045em;margin-bottom:12px}
-    .box-panel p{color:var(--muted);margin-bottom:22px;max-width:560px}
-    .feature-list{display:grid;gap:12px;margin-bottom:24px}
-    .feature-list div{padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-weight:600}
-    .visual-panel{border-radius:28px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
-    .visual-panel img{width:100%;height:100%;object-fit:cover;min-height:460px}
-
-    .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .testimonial-card{padding:28px;border-radius:24px;border:1px solid var(--line);background:rgba(255,255,255,.04);box-shadow:var(--shadow)}
-    .testimonial-card p{margin-bottom:18px;color:#ecf3ff}
-    .testimonial-card h4{color:#9fc7ff;font-size:.95rem}
-
-    .cta-box{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:34px;border-radius:28px;border:1px solid var(--line);background:linear-gradient(135deg, rgba(47,140,255,.16), rgba(255,255,255,.04));box-shadow:var(--shadow)}
-    .cta-box h2{font-size:clamp(1.95rem,4vw,2.8rem);line-height:1.03;letter-spacing:-.045em;margin-bottom:10px}
-    .cta-box p{color:var(--muted)}
-
-    .contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px}
-    .contact-card{padding:18px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.04);margin-bottom:14px}
-    .contact-card strong{display:block;margin-bottom:4px}
-    .contact-card span{color:var(--muted)}
-    .map-frame{width:100%;min-height:420px;border:0;border-radius:24px;box-shadow:var(--shadow)}
-
-    .site-footer{padding:34px 0;border-top:1px solid var(--line);background:rgba(0,0,0,.16)}
-    .footer-wrap{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    .footer-wrap p,.footer-wrap a{color:var(--muted)}
-    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
-
-    .floating-whatsapp{
-      position:fixed;right:18px;bottom:18px;z-index:999;min-height:58px;padding:0 20px;border-radius:999px;
-      display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#13b958,#24df79);color:#fff;font-weight:900;box-shadow:0 18px 45px rgba(19,185,88,.35)
-    }
-    .back-to-top{
-      position:fixed;right:18px;bottom:88px;width:50px;height:50px;border-radius:50%;z-index:998;
-      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#fff;backdrop-filter:blur(10px);box-shadow:var(--shadow);
-      opacity:0;visibility:hidden;transition:.25s ease
-    }
-    .back-to-top.show{opacity:1;visibility:visible}
-
-    @media (max-width:1100px){
-      .products-grid,.showcase-grid{grid-template-columns:repeat(2,1fr)}
-      .testimonials-grid{grid-template-columns:1fr}
-      .split-grid,.contact-grid,.promo-grid{grid-template-columns:1fr}
-      .trust-grid{grid-template-columns:repeat(2,1fr)}
-      .cta-box{flex-direction:column;align-items:flex-start}
-    }
-
-    @media (max-width:860px){
-      .desktop-nav,.desktop-whats{display:none}
-      .menu-toggle{display:inline-flex}
-      .hero{min-height:80vh;align-items:flex-end}
-      .hero-content{padding:92px 0 86px;max-width:100%}
-      .hero h1{max-width:11ch}
-      .hero-cta .btn{flex:1 1 220px}
-      .floating-cart{display:none}
-    }
-
-    @media (max-width:640px){
-      .container{width:min(100% - 22px,var(--container))}
-      .section{padding:68px 0}
-      .hero{min-height:84vh}
-      .hero-overlay{background:linear-gradient(180deg, rgba(4,7,14,.28) 0%, rgba(4,7,14,.70) 35%, rgba(4,7,14,.94) 100%)}
-      .hero-content{padding:86px 0 82px}
-      .hero-badge{font-size:.82rem;margin-bottom:14px}
-      .hero h1{font-size:clamp(2rem,8vw,2.9rem);max-width:9.6ch;margin-bottom:12px}
-      .hero p{font-size:.95rem;max-width:100%;margin-bottom:18px}
-      .hero-cta{flex-direction:column;gap:12px;margin-bottom:16px}
-      .hero-cta .btn{width:100%}
-      .hero-mini{gap:8px}
-      .hero-mini span{font-size:.8rem;padding:9px 12px}
-      .hero-dots{bottom:18px}
-      .trust-grid,.products-grid,.showcase-grid{grid-template-columns:1fr}
-      .section-head h2,.box-panel h2,.cta-box h2{font-size:clamp(1.8rem,7vw,2.4rem)}
-      .product-body,.testimonial-card,.box-panel{padding:18px}
-      .visual-panel img{min-height:320px}
-      .map-frame{min-height:320px}
-      .floating-whatsapp{right:14px;bottom:14px;min-height:54px;padding:0 18px;font-size:.94rem}
-      .back-to-top{right:14px;bottom:76px;width:46px;height:46px}
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header" id="topo">
     <div class="container header-wrap">
-      <a href="#inicio" class="logo">
+      <a href="#inicio" class="logo" aria-label="Xiaomi Store">
         <span class="logo-badge">Mi</span>
         <span class="logo-text">Xiaomi Store</span>
       </a>
 
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Menu principal">
         <a href="#inicio">Início</a>
         <a href="#ofertas">Ofertas</a>
         <a href="#produtos">Produtos</a>
+        <a href="#categorias">Categorias</a>
         <a href="#assistencia">Assistência</a>
-        <a href="#depoimentos">Depoimentos</a>
         <a href="#contato">Contato</a>
       </nav>
 
       <div class="header-actions">
         <a class="btn btn-outline desktop-whats" href="https://wa.me/5531999999999?text=Olá!%20Quero%20atendimento." target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-          <span></span><span></span><span></span>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </div>
@@ -287,32 +51,41 @@
       <a href="#inicio">Início</a>
       <a href="#ofertas">Ofertas</a>
       <a href="#produtos">Produtos</a>
+      <a href="#categorias">Categorias</a>
       <a href="#assistencia">Assistência</a>
-      <a href="#depoimentos">Depoimentos</a>
       <a href="#contato">Contato</a>
       <a class="btn btn-primary" href="https://wa.me/5531999999999?text=Olá!%20Quero%20atendimento." target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
     </div>
   </header>
 
-  <div class="floating-cart">🛒<small>3 itens</small></div>
+  <div class="floating-cart" id="floatingCart" aria-label="Carrinho visual">
+    <span class="cart-icon">🛒</span>
+    <div>
+      <strong id="cartCount">0</strong>
+      <small>itens</small>
+    </div>
+  </div>
 
   <main>
     <section class="hero" id="inicio">
       <div class="hero-bg">
-        <div class="hero-slide active" style="background-image:url('https://placehold.co/1600x900/0d1423/ffffff?text=Banner+Premium+1')"></div>
-        <div class="hero-slide" style="background-image:url('https://placehold.co/1600x900/101827/ffffff?text=Banner+Premium+2')"></div>
-        <div class="hero-slide" style="background-image:url('https://placehold.co/1600x900/08111f/ffffff?text=Banner+Premium+3')"></div>
+        <div class="hero-slide active" style="background-image: url('https://placehold.co/1600x900/0d1423/ffffff?text=Banner+Premium+1');"></div>
+        <div class="hero-slide" style="background-image: url('https://placehold.co/1600x900/101827/ffffff?text=Banner+Premium+2');"></div>
+        <div class="hero-slide" style="background-image: url('https://placehold.co/1600x900/08111f/ffffff?text=Banner+Premium+3');"></div>
       </div>
+
       <div class="hero-overlay"></div>
 
       <div class="container hero-content">
         <div class="hero-badge">Celulares • Acessórios • Assistência</div>
         <h1>Venda forte com visual premium</h1>
-        <p>Celulares, acessórios e atendimento rápido no WhatsApp. Direto, bonito e fácil de comprar.</p>
+        <p>Celulares, acessórios e orçamento rápido. Site limpo, direto e pronto para vender no WhatsApp.</p>
+
         <div class="hero-cta">
           <a href="#produtos" class="btn btn-primary">Ver produtos</a>
-          <a href="https://wa.me/5531999999999?text=Olá!%20Quero%20comprar%20agora." class="btn btn-outline" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
+          <a href="https://wa.me/5531999999999?text=Olá!%20Quero%20comprar%20agora." class="btn btn-glass" target="_blank" rel="noopener noreferrer">Comprar no WhatsApp</a>
         </div>
+
         <div class="hero-mini">
           <span>Entrega rápida</span>
           <span>Pagamento fácil</span>
@@ -320,10 +93,10 @@
         </div>
       </div>
 
-      <div class="hero-dots">
-        <button class="dot active" data-slide="0"></button>
-        <button class="dot" data-slide="1"></button>
-        <button class="dot" data-slide="2"></button>
+      <div class="hero-dots" id="heroDots">
+        <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+        <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+        <button class="dot" data-slide="2" aria-label="Slide 3"></button>
       </div>
     </section>
 
@@ -341,7 +114,7 @@
         <div class="section-head">
           <span class="tag">Ofertas</span>
           <h2>Destaque principal da loja</h2>
-          <p>Estrutura pronta para chamar atenção logo no começo da navegação.</p>
+          <p>Bloco forte para chamar atenção logo na entrada.</p>
         </div>
 
         <div class="promo-grid">
@@ -349,7 +122,7 @@
             <div class="promo-overlay"></div>
             <div class="promo-content">
               <h3>Smartphones com preço forte</h3>
-              <p>Modelos em destaque com chamada direta para compra e atendimento rápido no WhatsApp.</p>
+              <p>Modelos em destaque com chamada direta para fechar no WhatsApp.</p>
               <a href="https://wa.me/5531999999999?text=Olá!%20Quero%20ver%20as%20ofertas." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Ver ofertas</a>
             </div>
           </article>
@@ -357,7 +130,7 @@
           <aside class="promo-side">
             <div class="mini-offer">
               <h4>Capinhas Premium</h4>
-              <p>Proteção bonita e venda fácil.</p>
+              <p>Proteção bonita e giro rápido.</p>
               <a href="https://wa.me/5531999999999?text=Olá!%20Quero%20ver%20as%20capinhas." class="btn btn-outline btn-full" target="_blank" rel="noopener noreferrer">Ver capinhas</a>
             </div>
             <div class="mini-offer">
@@ -367,8 +140,8 @@
             </div>
             <div class="mini-offer">
               <h4>Assistência técnica</h4>
-              <p>Orçamento direto sem enrolação.</p>
-              <a href="https://wa.me/5531999999999?text=Olá!%20Quero%20orçamento%20de%20conserto." class="btn btn-green btn-full" target="_blank" rel="noopener noreferrer">Pedir orçamento</a>
+              <p>Orçamento rápido sem enrolação.</p>
+              <a href="https://wa.me/5531999999999?text=Olá!%20Quero%20um%20orçamento%20de%20conserto." class="btn btn-green btn-full" target="_blank" rel="noopener noreferrer">Pedir orçamento</a>
             </div>
           </aside>
         </div>
@@ -380,21 +153,21 @@
         <div class="section-head">
           <span class="tag">Produtos</span>
           <h2>Vitrine com cara de e-commerce</h2>
-          <p>Cards melhores, leitura rápida e botão direto para fechar atendimento.</p>
+          <p>Cards melhores, leitura rápida e fluxo de compra direto.</p>
         </div>
 
         <div class="filters">
-          <button class="filter-chip active">Todos</button>
-          <button class="filter-chip">Celulares</button>
-          <button class="filter-chip">Capinhas</button>
-          <button class="filter-chip">Carregadores</button>
-          <button class="filter-chip">Smartwatch</button>
+          <button class="filter-chip active" type="button">Todos</button>
+          <button class="filter-chip" type="button">Celulares</button>
+          <button class="filter-chip" type="button">Capinhas</button>
+          <button class="filter-chip" type="button">Carregadores</button>
+          <button class="filter-chip" type="button">Smartwatch</button>
         </div>
 
         <div class="products-grid">
           <article class="product-card">
             <div class="product-image">
-              <img src="https://placehold.co/700x700/0f172a/ffffff?text=Smartphone+1" alt="Smartphone Xiaomi" loading="lazy">
+              <img src="https://placehold.co/700x700/0f172a/ffffff?text=Smartphone+1" alt="Smartphone Xiaomi Pro" loading="lazy" />
               <span class="product-badge">Mais vendido</span>
               <div class="product-actions">
                 <span class="icon-pill">❤</span>
@@ -410,13 +183,16 @@
                   <strong>R$ 1.999</strong>
                 </div>
               </div>
-              <a class="btn btn-primary btn-full" href="https://wa.me/5531999999999?text=Olá!%20Tenho%20interesse%20no%20Smartphone%20Xiaomi%20Pro." target="_blank" rel="noopener noreferrer">Comprar agora</a>
+              <div class="product-buttons">
+                <button class="btn btn-outline btn-full add-cart" data-product="Smartphone Xiaomi Pro" data-price="1999">Adicionar</button>
+                <button class="btn btn-primary btn-full open-modal" data-product="Smartphone Xiaomi Pro" data-price="1999" data-image="https://placehold.co/700x700/0f172a/ffffff?text=Smartphone+1">Comprar agora</button>
+              </div>
             </div>
           </article>
 
           <article class="product-card">
             <div class="product-image">
-              <img src="https://placehold.co/700x700/111827/ffffff?text=Redmi+Note" alt="Redmi Note" loading="lazy">
+              <img src="https://placehold.co/700x700/111827/ffffff?text=Redmi+Note" alt="Redmi Note" loading="lazy" />
               <span class="product-badge">Oferta</span>
               <div class="product-actions">
                 <span class="icon-pill">❤</span>
@@ -432,13 +208,16 @@
                   <strong>R$ 1.499</strong>
                 </div>
               </div>
-              <a class="btn btn-primary btn-full" href="https://wa.me/5531999999999?text=Olá!%20Tenho%20interesse%20no%20Redmi%20Note." target="_blank" rel="noopener noreferrer">Comprar agora</a>
+              <div class="product-buttons">
+                <button class="btn btn-outline btn-full add-cart" data-product="Redmi Note" data-price="1499">Adicionar</button>
+                <button class="btn btn-primary btn-full open-modal" data-product="Redmi Note" data-price="1499" data-image="https://placehold.co/700x700/111827/ffffff?text=Redmi+Note">Comprar agora</button>
+              </div>
             </div>
           </article>
 
           <article class="product-card">
             <div class="product-image">
-              <img src="https://placehold.co/700x700/0b1320/ffffff?text=Capinha+Premium" alt="Capinha premium" loading="lazy">
+              <img src="https://placehold.co/700x700/0b1320/ffffff?text=Capinha+Premium" alt="Capinhas Premium" loading="lazy" />
               <span class="product-badge">Novo</span>
               <div class="product-actions">
                 <span class="icon-pill">❤</span>
@@ -454,13 +233,16 @@
                   <strong>R$ 49,90</strong>
                 </div>
               </div>
-              <a class="btn btn-primary btn-full" href="https://wa.me/5531999999999?text=Olá!%20Quero%20ver%20as%20capinhas." target="_blank" rel="noopener noreferrer">Comprar agora</a>
+              <div class="product-buttons">
+                <button class="btn btn-outline btn-full add-cart" data-product="Capinhas Premium" data-price="49.90">Adicionar</button>
+                <button class="btn btn-primary btn-full open-modal" data-product="Capinhas Premium" data-price="49.90" data-image="https://placehold.co/700x700/0b1320/ffffff?text=Capinha+Premium">Comprar agora</button>
+              </div>
             </div>
           </article>
 
           <article class="product-card">
             <div class="product-image">
-              <img src="https://placehold.co/700x700/0d1423/ffffff?text=Carregador" alt="Carregador rápido" loading="lazy">
+              <img src="https://placehold.co/700x700/0d1423/ffffff?text=Carregador" alt="Carregador Turbo" loading="lazy" />
               <span class="product-badge">Destaque</span>
               <div class="product-actions">
                 <span class="icon-pill">❤</span>
@@ -476,36 +258,39 @@
                   <strong>R$ 39,90</strong>
                 </div>
               </div>
-              <a class="btn btn-primary btn-full" href="https://wa.me/5531999999999?text=Olá!%20Quero%20ver%20os%20carregadores." target="_blank" rel="noopener noreferrer">Comprar agora</a>
+              <div class="product-buttons">
+                <button class="btn btn-outline btn-full add-cart" data-product="Carregador Turbo" data-price="39.90">Adicionar</button>
+                <button class="btn btn-primary btn-full open-modal" data-product="Carregador Turbo" data-price="39.90" data-image="https://placehold.co/700x700/0d1423/ffffff?text=Carregador">Comprar agora</button>
+              </div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="categorias">
       <div class="container">
         <div class="section-head">
           <span class="tag">Categorias</span>
           <h2>Áreas que vendem bem</h2>
-          <p>Seções prontas para você trocar as fotos depois sem desmontar o site.</p>
+          <p>Seções prontas para trocar fotos sem desmontar o site.</p>
         </div>
 
         <div class="showcase-grid">
           <article class="showcase-card">
-            <img src="https://placehold.co/900x700/101827/ffffff?text=Celulares" alt="Celulares" loading="lazy">
+            <img src="https://placehold.co/900x700/101827/ffffff?text=Celulares" alt="Celulares" loading="lazy" />
             <div class="info"><h3>Celulares</h3><p>Modelos novos e seminovos.</p></div>
           </article>
           <article class="showcase-card">
-            <img src="https://placehold.co/900x700/0b1220/ffffff?text=Capinhas" alt="Capinhas" loading="lazy">
+            <img src="https://placehold.co/900x700/0b1220/ffffff?text=Capinhas" alt="Capinhas" loading="lazy" />
             <div class="info"><h3>Capinhas</h3><p>Mais giro, leitura fácil e venda rápida.</p></div>
           </article>
           <article class="showcase-card">
-            <img src="https://placehold.co/900x700/0e1626/ffffff?text=Acess%C3%B3rios" alt="Acessórios" loading="lazy">
+            <img src="https://placehold.co/900x700/0e1626/ffffff?text=Acess%C3%B3rios" alt="Acessórios" loading="lazy" />
             <div class="info"><h3>Acessórios</h3><p>Cabos, fontes, película e mais.</p></div>
           </article>
           <article class="showcase-card">
-            <img src="https://placehold.co/900x700/08111f/ffffff?text=Smartwatch" alt="Smartwatch" loading="lazy">
+            <img src="https://placehold.co/900x700/08111f/ffffff?text=Smartwatch" alt="Smartwatch" loading="lazy" />
             <div class="info"><h3>Smartwatch</h3><p>Categoria moderna para valorizar a vitrine.</p></div>
           </article>
         </div>
@@ -517,7 +302,7 @@
         <div class="box-panel">
           <span class="tag">Assistência técnica</span>
           <h2>Conserto com resposta rápida</h2>
-          <p>Essa seção já está pronta para captar orçamento e passar mais confiança para quem entra no site.</p>
+          <p>Seção pronta para captar orçamento e passar confiança para quem entra no site.</p>
           <div class="feature-list">
             <div>Troca de tela</div>
             <div>Troca de bateria</div>
@@ -527,22 +312,7 @@
           <a href="https://wa.me/5531999999999?text=Olá!%20Quero%20um%20orçamento%20de%20conserto." class="btn btn-green" target="_blank" rel="noopener noreferrer">Pedir orçamento</a>
         </div>
         <div class="visual-panel">
-          <img src="https://placehold.co/1200x900/101827/ffffff?text=Assist%C3%AAncia+T%C3%A9cnica" alt="Assistência técnica" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="depoimentos">
-      <div class="container">
-        <div class="section-head">
-          <span class="tag">Depoimentos</span>
-          <h2>Prova social curta e forte</h2>
-          <p>Sem enrolação. Direto ao ponto para ajudar a vender.</p>
-        </div>
-        <div class="testimonials-grid">
-          <article class="testimonial-card"><p>“Atendimento rápido, produto muito bom e visual da loja passa confiança.”</p><h4>Cliente 1</h4></article>
-          <article class="testimonial-card"><p>“O orçamento saiu rápido no WhatsApp e o conserto ficou ótimo.”</p><h4>Cliente 2</h4></article>
-          <article class="testimonial-card"><p>“Loja bonita, atendimento direto e preço justo.”</p><h4>Cliente 3</h4></article>
+          <img src="https://placehold.co/1200x900/101827/ffffff?text=Assist%C3%AAncia+T%C3%A9cnica" alt="Assistência técnica" loading="lazy" />
         </div>
       </div>
     </section>
@@ -593,65 +363,32 @@
   <a class="floating-whatsapp" href="https://wa.me/5531999999999?text=Olá!%20Quero%20atendimento." target="_blank" rel="noopener noreferrer">WhatsApp</a>
   <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
 
-  <script>
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const backToTop = document.getElementById('backToTop');
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.dot');
-    let currentSlide = 0;
-    let sliderInterval;
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <aside class="side-modal" id="sideModal" aria-hidden="true">
+    <button class="modal-close" id="modalClose" aria-label="Fechar modal">✕</button>
+    <div class="side-modal-content">
+      <img id="modalImage" src="https://placehold.co/700x700" alt="Produto selecionado" />
+      <span class="modal-mini">Compra rápida</span>
+      <h3 id="modalTitle">Produto</h3>
+      <p id="modalPrice">R$ 0,00</p>
 
-    if(menuToggle && mobileMenu){
-      menuToggle.addEventListener('click', ()=> mobileMenu.classList.toggle('active'));
-      mobileMenu.querySelectorAll('a').forEach(link=>{
-        link.addEventListener('click', ()=> mobileMenu.classList.remove('active'));
-      });
-    }
+      <div class="modal-form">
+        <input type="text" id="clientName" placeholder="Seu nome" />
+        <input type="text" id="clientPhone" placeholder="Seu telefone" />
+        <input type="text" id="clientAddress" placeholder="Endereço" />
+        <select id="paymentMethod">
+          <option value="PIX">PIX</option>
+          <option value="Cartão de crédito">Cartão de crédito</option>
+          <option value="Cartão de débito">Cartão de débito</option>
+          <option value="Dinheiro">Dinheiro</option>
+        </select>
+        <textarea id="clientNotes" rows="4" placeholder="Observações do pedido"></textarea>
+      </div>
 
-    function showSlide(index){
-      slides.forEach((slide,i)=> slide.classList.toggle('active', i === index));
-      dots.forEach((dot,i)=> dot.classList.toggle('active', i === index));
-      currentSlide = index;
-    }
+      <button class="btn btn-primary btn-full" id="finishOrder">Finalizar no WhatsApp</button>
+    </div>
+  </aside>
 
-    function nextSlide(){
-      const next = (currentSlide + 1) % slides.length;
-      showSlide(next);
-    }
-
-    function startSlider(){
-      sliderInterval = setInterval(nextSlide, 5000);
-    }
-
-    function resetSlider(){
-      clearInterval(sliderInterval);
-      startSlider();
-    }
-
-    if(slides.length && dots.length){
-      dots.forEach((dot,index)=>{
-        dot.addEventListener('click', ()=>{
-          showSlide(index);
-          resetSlider();
-        });
-      });
-      startSlider();
-    }
-
-    window.addEventListener('scroll', ()=>{
-      if(window.scrollY > 450){
-        backToTop.classList.add('show');
-      }else{
-        backToTop.classList.remove('show');
-      }
-    });
-
-    if(backToTop){
-      backToTop.addEventListener('click', ()=>{
-        window.scrollTo({ top:0, behavior:'smooth' });
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
