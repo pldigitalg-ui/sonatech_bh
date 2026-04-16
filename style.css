@@ -297,6 +297,12 @@ button{
   width:100%;
 }
 
+.btn-mobile-action{
+  min-height:44px;
+  font-size:.88rem;
+  padding:0 18px;
+}
+
 .pulse-soft{
   animation:pulseSoft 2.2s infinite;
 }
@@ -506,7 +512,7 @@ button{
   overflow:hidden;
   border-radius:36px;
   background:
-    linear-gradient(135deg, rgba(8,16,31,.78), rgba(11,18,32,.42)),
+    linear-gradient(135deg, rgba(8,16,31,.28), rgba(11,18,32,.12)),
     url("img/destaque-loja.jpg") center/cover no-repeat;
   box-shadow:var(--shadow);
 }
@@ -515,28 +521,6 @@ button{
   position:absolute;
   inset:0;
   background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.03));
-}
-
-.highlight-content{
-  position:absolute;
-  left:30px;
-  right:30px;
-  bottom:30px;
-  max-width:540px;
-  color:#fff;
-}
-
-.highlight-content h3{
-  font-family:'Manrope',sans-serif;
-  font-size:clamp(1.9rem,3vw,2.9rem);
-  line-height:1.02;
-  letter-spacing:-.04em;
-  margin-bottom:10px;
-}
-
-.highlight-content p{
-  color:rgba(255,255,255,.86);
-  margin-bottom:18px;
 }
 
 .highlight-side{
@@ -805,36 +789,65 @@ button{
   justify-content:center;
 }
 
-.site-footer{
-  background:#0c1324;
-  color:#fff;
-  margin-top:24px;
+.site-footer-premium{
+  background:#f3f5f8;
+  color:#111827;
+  border-top:1px solid #dfe5ee;
 }
 
-.footer-wrap{
+.footer-premium-top{
   padding:34px 0;
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:26px;
+  border-bottom:1px solid #dde5ee;
 }
 
-.footer-brand p,
-.footer-links a,
-.footer-social a{
-  color:rgba(255,255,255,.74);
+.footer-col h4{
+  font-size:.9rem;
+  font-weight:900;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  margin-bottom:16px;
 }
 
-.footer-links,
-.footer-social{
+.footer-col a{
+  display:block;
+  font-size:.92rem;
+  color:#27364a;
+  margin-bottom:10px;
+}
+
+.footer-social-col{
   display:flex;
   flex-direction:column;
-  gap:10px;
 }
 
-.footer-bottom{
-  border-top:1px solid rgba(255,255,255,.08);
+.footer-social-icons{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:8px;
+}
+
+.footer-social-icons a{
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#ff7a00;
+}
+
+.footer-social-icons svg{
+  width:20px;
+  height:20px;
+  fill:currentColor;
+}
+
+.footer-bottom-premium{
+  padding:0;
+  border-top:none;
 }
 
 .footer-bottom-wrap{
@@ -844,12 +857,12 @@ button{
   justify-content:space-between;
   gap:16px;
   flex-wrap:wrap;
-  color:rgba(255,255,255,.78);
+  color:#556274;
   font-size:.95rem;
 }
 
-.footer-bottom a{
-  color:#8fd1ff;
+.footer-bottom-wrap a{
+  color:var(--primary);
   font-weight:800;
 }
 
@@ -912,7 +925,8 @@ button{
 }
 
 .cart-overlay,
-.modal-overlay{
+.modal-overlay,
+.lightbox-overlay{
   position:fixed;
   inset:0;
   background:rgba(8,16,31,.45);
@@ -920,13 +934,49 @@ button{
   opacity:0;
   visibility:hidden;
   transition:.25s ease;
-  z-index:1190;
 }
 
 .cart-overlay.active,
-.modal-overlay.active{
+.modal-overlay.active,
+.lightbox-overlay.active{
   opacity:1;
   visibility:visible;
+}
+
+.cart-overlay,
+.modal-overlay{
+  z-index:1190;
+}
+
+.lightbox-overlay{
+  z-index:1300;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.lightbox-overlay img{
+  max-width:min(92vw,700px);
+  max-height:86vh;
+  border-radius:24px;
+  box-shadow:0 30px 70px rgba(0,0,0,.35);
+  background:#fff;
+}
+
+.lightbox-close{
+  position:absolute;
+  top:20px;
+  right:20px;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  color:#111827;
+  font-size:1.1rem;
+  font-weight:900;
 }
 
 .cart-drawer,
@@ -1103,6 +1153,7 @@ button{
   border:1px solid #e3ebf5;
   background:#f7fbff;
   box-shadow:var(--shadow-soft);
+  cursor:zoom-in;
 }
 
 .side-modal img{
@@ -1156,7 +1207,8 @@ button{
 
   .highlight-grid,
   .assistance-grid,
-  .contact-professional-grid{
+  .contact-professional-grid,
+  .footer-premium-top{
     grid-template-columns:1fr;
   }
 
@@ -1240,8 +1292,21 @@ button{
   }
 
   .hero-main-cta{
-    width:100%;
-    max-width:260px;
+    max-width:220px;
+    min-height:44px;
+    font-size:.88rem;
+    padding:0 18px;
+  }
+
+  .btn{
+    min-height:44px;
+    font-size:.88rem;
+    padding:0 18px;
+  }
+
+  .btn-mobile-action{
+    min-height:42px;
+    font-size:.84rem;
   }
 
   .strip-grid,
@@ -1250,13 +1315,54 @@ button{
     grid-template-columns:1fr;
   }
 
+  .products-grid{
+    gap:14px;
+  }
+
   .product-card,
   .assistance-copy,
   .contact-professional-card{
-    border-radius:24px;
+    border-radius:22px;
   }
 
-  .product-body,
+  .product-body{
+    padding:14px;
+  }
+
+  .product-body h3{
+    font-size:.98rem;
+    margin-bottom:6px;
+  }
+
+  .product-body p{
+    font-size:.84rem;
+    line-height:1.45;
+    min-height:auto;
+    margin-bottom:10px;
+  }
+
+  .spec-preview{
+    gap:4px;
+    margin-bottom:10px;
+  }
+
+  .spec-preview span{
+    font-size:.78rem;
+  }
+
+  .price-row strong{
+    font-size:1.06rem;
+  }
+
+  .price-row span{
+    font-size:.78rem;
+  }
+
+  .floating-label{
+    font-size:.7rem;
+    padding:7px 10px;
+  }
+
   .assistance-copy,
   .contact-professional-card,
   .side-modal-inner{
@@ -1285,5 +1391,19 @@ button{
 
   .map-final-wrap{
     width:min(100% - 20px, 1240px);
+  }
+
+  .footer-social-icons{
+    gap:8px;
+  }
+
+  .footer-social-icons a{
+    width:24px;
+    height:24px;
+  }
+
+  .footer-social-icons svg{
+    width:17px;
+    height:17px;
   }
 }
