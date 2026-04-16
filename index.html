@@ -13,13 +13,13 @@
     name="keywords"
     content="Sonatech BH, celular, assistência técnica, capinha, carregador, acessórios, Belo Horizonte, troca de tela, troca de bateria"
   />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="theme-color" content="#ff6a00" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:title" content="Sonatech BH | Celulares, Acessórios e Assistência Técnica" />
   <meta property="og:description" content="Venda rápida de celulares e acessórios. Assistência técnica com orçamento fácil no WhatsApp." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/hero-desktop-1.jpg" />
+  <meta property="og:image" content="img/hero-desktop-1.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,6 +30,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="top-promo-bar">
+    <div class="container top-promo-wrap">
+      <span>💳 Parcele em até 12x sem juros</span>
+      <span>🚚 Frete grátis acima de R$200*</span>
+      <span>💸 Desconto especial no PIX</span>
+    </div>
+  </div>
+
   <header class="site-header" id="topo">
     <div class="container nav-wrap">
       <a href="#inicio" class="brand" aria-label="Sonatech BH">
@@ -49,6 +57,11 @@
       </nav>
 
       <div class="nav-actions">
+        <div class="header-search desktop-search">
+          <input type="text" id="headerSearchDesktop" placeholder="Buscar produtos" />
+          <button type="button" class="header-search-btn" aria-label="Buscar">⌕</button>
+        </div>
+
         <button class="icon-btn cart-btn" id="cartTrigger" aria-label="Abrir carrinho">
           <span>🛒</span>
           <span class="cart-badge" id="cartBadge">0</span>
@@ -72,6 +85,11 @@
     </div>
 
     <div class="mobile-menu" id="mobileMenu">
+      <div class="header-search mobile-search">
+        <input type="text" id="headerSearchMobile" placeholder="Buscar produtos" />
+        <button type="button" class="header-search-btn" aria-label="Buscar">⌕</button>
+      </div>
+
       <a href="#inicio">Início</a>
       <a href="#destaques">Destaques</a>
       <a href="#produtos">Produtos</a>
@@ -89,30 +107,33 @@
   </header>
 
   <main>
-    <section class="hero" id="inicio">
+    <section class="hero hero-premium" id="inicio">
       <div class="hero-slides">
         <div class="hero-slide active">
           <picture>
-            <source media="(max-width: 768px)" srcset="images/hero-mobile-1.jpg" />
-            <img src="images/hero-desktop-1.jpg" alt="Sonatech BH celulares e acessórios" />
+            <source media="(max-width: 768px)" srcset="img/hero-mobile-1.jpg" />
+            <img src="img/hero-desktop-1.jpg" alt="Sonatech BH celulares e acessórios" />
           </picture>
         </div>
 
         <div class="hero-slide">
           <picture>
-            <source media="(max-width: 768px)" srcset="images/hero-mobile-2.jpg" />
-            <img src="images/hero-desktop-2.jpg" alt="Assistência técnica Sonatech BH" />
+            <source media="(max-width: 768px)" srcset="img/hero-mobile-2.jpg" />
+            <img src="img/hero-desktop-2.jpg" alt="Assistência técnica Sonatech BH" />
           </picture>
         </div>
       </div>
 
-      <div class="hero-overlay"></div>
+      <div class="hero-shape hero-shape-top"></div>
+      <div class="hero-shape hero-shape-bottom"></div>
+      <div class="hero-overlay hero-overlay-light"></div>
 
-      <div class="container hero-inner">
-        <div class="hero-copy glass-card">
-          <span class="hero-kicker">SONATECH BH</span>
+      <div class="container hero-inner hero-inner-premium">
+        <div class="hero-copy hero-copy-premium">
+          <span class="hero-kicker hero-kicker-premium">SONATECH BH</span>
+          <p class="hero-mini">Tecnologia, acessórios e manutenção com atendimento rápido</p>
           <h1>Seu celular novo, seu acessório e seu conserto no mesmo lugar.</h1>
-          <p>
+          <p class="hero-description">
             Celulares, capinhas, carregadores e acessórios com atendimento rápido.
             Precisa consertar? Fale agora e receba orçamento direto no WhatsApp.
           </p>
@@ -127,7 +148,7 @@
             <a href="#produtos" class="btn btn-primary pulse-soft">Ver ofertas</a>
             <a
               href="https://wa.me/553183209688?text=Olá! Quero comprar na Sonatech BH."
-              class="btn btn-light"
+              class="btn btn-outline-dark"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -135,7 +156,7 @@
             </a>
           </div>
 
-          <div class="hero-location">
+          <div class="hero-location hero-location-premium">
             <span>📍 Rua Santo Inácio de Loyola 391 - Jardim Felicidade</span>
           </div>
         </div>
@@ -250,7 +271,7 @@
         </div>
 
         <div class="assistance-visual">
-          <img src="images/assistencia.jpg" alt="Assistência técnica de celulares" loading="lazy" />
+          <img src="img/assistencia.jpg" alt="Assistência técnica de celulares" loading="lazy" />
         </div>
       </div>
     </section>
@@ -290,7 +311,7 @@
         <div class="map-box">
           <iframe
             title="Mapa da Sonatech BH"
-            src="https://www.google.com/maps?q=Rua%20Santo%20Inácio%20de%20Loyola%20391%20Jardim%20Felicidade&output=embed"
+            src="https://www.google.com/maps?q=Rua%20Santo%20In%C3%A1cio%20de%20Loyola%20391%20Jardim%20Felicidade&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
