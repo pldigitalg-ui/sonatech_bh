@@ -435,6 +435,10 @@ const modalDescription = document.getElementById("modalDescription");
 const modalSpecs = document.getElementById("modalSpecs");
 const finishOrder = document.getElementById("finishOrder");
 
+const lightboxOverlay = document.getElementById("lightboxOverlay");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+
 let currentSlide = 0;
 let sliderInterval;
 let selectedProduct = null;
@@ -641,7 +645,7 @@ function closeCartDrawer() {
   cartOverlay.classList.remove("active");
   cartDrawer.setAttribute("aria-hidden", "true");
 
-  if (!sideModal.classList.contains("active")) {
+  if (!sideModal.classList.contains("active") && !lightboxOverlay.classList.contains("active")) {
     document.body.style.overflow = "";
   }
 }
@@ -747,7 +751,25 @@ function closeProductModal() {
   modalOverlay.classList.remove("active");
   sideModal.setAttribute("aria-hidden", "true");
 
-  if (!cartDrawer.classList.contains("active")) {
+  if (!cartDrawer.classList.contains("active") && !lightboxOverlay.classList.contains("active")) {
+    document.body.style.overflow = "";
+  }
+}
+
+/* LIGHTBOX */
+function openLightbox(src, alt) {
+  lightboxImage.src = src;
+  lightboxImage.alt = alt;
+  lightboxOverlay.classList.add("active");
+  lightboxOverlay.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightboxOverlay.classList.remove("active");
+  lightboxOverlay.setAttribute("aria-hidden", "true");
+
+  if (!cartDrawer.classList.contains("active") && !sideModal.classList.contains("active")) {
     document.body.style.overflow = "";
   }
 }
@@ -759,6 +781,26 @@ if (cartOverlay) cartOverlay.addEventListener("click", closeCartDrawer);
 
 if (closeModal) closeModal.addEventListener("click", closeProductModal);
 if (modalOverlay) modalOverlay.addEventListener("click", closeProductModal);
+
+if (modalImage) {
+  modalImage.addEventListener("click", () => {
+    if (selectedProduct) {
+      openLightbox(selectedProduct.image, selectedProduct.name);
+    }
+  });
+}
+
+if (lightboxClose) {
+  lightboxClose.addEventListener("click", closeLightbox);
+}
+
+if (lightboxOverlay) {
+  lightboxOverlay.addEventListener("click", (event) => {
+    if (event.target === lightboxOverlay) {
+      closeLightbox();
+    }
+  });
+}
 
 document.addEventListener("click", (event) => {
   const target = event.target;
