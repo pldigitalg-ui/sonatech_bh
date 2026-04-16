@@ -3,29 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sonatech BH | Assistência Técnica e Acessórios</title>
-  <meta name="description" content="Sonatech BH. Assistência técnica, acessórios em geral, compra rápida e atendimento direto no WhatsApp." />
-  <meta name="keywords" content="Sonatech BH, assistência técnica, acessórios, celular, capinha, carregador, Belo Horizonte" />
-  <meta name="theme-color" content="#ffffff" />
+  <title>Sonatech BH | Celulares, Acessórios e Assistência Técnica</title>
+
+  <meta
+    name="description"
+    content="Sonatech BH em Belo Horizonte. Venda de celulares, capinhas, carregadores e acessórios. Assistência técnica com atendimento rápido pelo WhatsApp."
+  />
+  <meta
+    name="keywords"
+    content="Sonatech BH, celular, assistência técnica, capinha, carregador, acessórios, Belo Horizonte, troca de tela, troca de bateria"
+  />
+  <meta name="theme-color" content="#0b1020" />
   <meta name="robots" content="index, follow" />
 
-  <meta property="og:title" content="Sonatech BH | Assistência Técnica e Acessórios" />
-  <meta property="og:description" content="Compra rápida, assistência técnica e acessórios em geral com atendimento direto no WhatsApp." />
+  <meta property="og:title" content="Sonatech BH | Celulares, Acessórios e Assistência Técnica" />
+  <meta property="og:description" content="Venda rápida de celulares e acessórios. Assistência técnica com orçamento fácil no WhatsApp." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://placehold.co/1200x630/f4f7fb/111111?text=Sonatech+BH" />
+  <meta property="og:image" content="images/hero-desktop-1.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header class="site-header" id="topo">
     <div class="container nav-wrap">
       <a href="#inicio" class="brand" aria-label="Sonatech BH">
         <span class="brand-badge">S</span>
-        <span class="brand-text">Sonatech BH</span>
+        <div class="brand-info">
+          <span class="brand-text">Sonatech BH</span>
+          <small>Venda e manutenção de celulares</small>
+        </div>
       </a>
 
       <nav class="desktop-nav" aria-label="Menu principal">
@@ -37,18 +49,18 @@
       </nav>
 
       <div class="nav-actions">
-        <button class="icon-btn" id="cartTrigger" aria-label="Abrir carrinho">
-          🛒
+        <button class="icon-btn cart-btn" id="cartTrigger" aria-label="Abrir carrinho">
+          <span>🛒</span>
           <span class="cart-badge" id="cartBadge">0</span>
         </button>
 
         <a
-          class="btn btn-dark desktop-cta"
-          href="https://wa.me/553183209688?text=Olá!%20Quero%20atendimento%20na%20Sonatech%20BH."
+          class="btn btn-dark desktop-cta pulse-soft"
+          href="https://wa.me/553183209688?text=Olá! Quero atendimento na Sonatech BH."
           target="_blank"
           rel="noopener noreferrer"
         >
-          Atendimento
+          Chamar no WhatsApp
         </a>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -66,12 +78,12 @@
       <a href="#assistencia">Assistência</a>
       <a href="#contato">Contato</a>
       <a
-        class="btn btn-primary"
-        href="https://wa.me/553183209688?text=Olá!%20Quero%20atendimento%20na%20Sonatech%20BH."
+        class="btn btn-primary pulse-soft"
+        href="https://wa.me/553183209688?text=Olá! Quero atendimento na Sonatech BH."
         target="_blank"
         rel="noopener noreferrer"
       >
-        Chamar no WhatsApp
+        Comprar no WhatsApp
       </a>
     </div>
   </header>
@@ -79,37 +91,52 @@
   <main>
     <section class="hero" id="inicio">
       <div class="hero-slides">
-        <div class="hero-slide active" style="background-image:url('https://placehold.co/1600x820/f4f7fb/111111?text=Sonatech+BH');"></div>
-        <div class="hero-slide" style="background-image:url('https://placehold.co/1600x820/edf3fa/111111?text=Assist%C3%AAncia+T%C3%A9cnica');"></div>
-        <div class="hero-slide" style="background-image:url('https://placehold.co/1600x820/f8fbff/111111?text=Acess%C3%B3rios+Premium');"></div>
+        <div class="hero-slide active">
+          <picture>
+            <source media="(max-width: 768px)" srcset="images/hero-mobile-1.jpg" />
+            <img src="images/hero-desktop-1.jpg" alt="Sonatech BH celulares e acessórios" />
+          </picture>
+        </div>
+
+        <div class="hero-slide">
+          <picture>
+            <source media="(max-width: 768px)" srcset="images/hero-mobile-2.jpg" />
+            <img src="images/hero-desktop-2.jpg" alt="Assistência técnica Sonatech BH" />
+          </picture>
+        </div>
       </div>
 
       <div class="hero-overlay"></div>
 
       <div class="container hero-inner">
-        <div class="hero-copy">
+        <div class="hero-copy glass-card">
           <span class="hero-kicker">SONATECH BH</span>
-          <h1>Assistência técnica e acessórios com atendimento rápido</h1>
+          <h1>Seu celular novo, seu acessório e seu conserto no mesmo lugar.</h1>
           <p>
-            O CAMINHO A VERDADE E A VIDA 🕊<br />
-            🔬 Assistência técnica<br />
-            🎯 Acessórios em geral
+            Celulares, capinhas, carregadores e acessórios com atendimento rápido.
+            Precisa consertar? Fale agora e receba orçamento direto no WhatsApp.
           </p>
 
+          <div class="hero-badges">
+            <span>📱 Celulares</span>
+            <span>🔋 Baterias</span>
+            <span>🛠 Assistência técnica</span>
+          </div>
+
           <div class="hero-actions">
-            <a href="#produtos" class="btn btn-primary">Ver produtos</a>
+            <a href="#produtos" class="btn btn-primary pulse-soft">Ver ofertas</a>
             <a
-              href="https://wa.me/553183209688?text=Olá!%20Quero%20comprar%20na%20Sonatech%20BH."
+              href="https://wa.me/553183209688?text=Olá! Quero comprar na Sonatech BH."
               class="btn btn-light"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Comprar no WhatsApp
+              Comprar agora
             </a>
           </div>
 
           <div class="hero-location">
-            <span>📍 Rua Santo Inácio de Loyola 391</span>
+            <span>📍 Rua Santo Inácio de Loyola 391 - Jardim Felicidade</span>
           </div>
         </div>
       </div>
@@ -117,16 +144,15 @@
       <div class="hero-dots" id="heroDots">
         <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
         <button class="dot" data-slide="1" aria-label="Slide 2"></button>
-        <button class="dot" data-slide="2" aria-label="Slide 3"></button>
       </div>
     </section>
 
     <section class="strip">
       <div class="container strip-grid">
-        <div>Atendimento rápido</div>
-        <div>Compra fácil</div>
-        <div>WhatsApp direto</div>
-        <div>Assistência técnica</div>
+        <div>Compra rápida</div>
+        <div>Atendimento direto</div>
+        <div>Assistência confiável</div>
+        <div>Fechamento no WhatsApp</div>
       </div>
     </section>
 
@@ -134,32 +160,39 @@
       <div class="container">
         <div class="section-head center">
           <span class="section-tag">Destaques</span>
-          <h2>Loja clara, premium e pronta para vender</h2>
-          <p>Visual limpo, leitura rápida, CTA forte e estrutura ajustada para mobile.</p>
+          <h2>Loja pronta para vender no celular e forte no desktop</h2>
+          <p>Visual moderno, leitura rápida, botões fortes e navegação simples para vender mais.</p>
         </div>
 
         <div class="highlight-grid">
           <article class="highlight-main">
             <div class="highlight-overlay"></div>
             <div class="highlight-content">
-              <span class="mini-tag">Linha premium</span>
-              <h3>Produtos e serviços com visual de loja grande</h3>
-              <p>Atendimento rápido, oferta direta e navegação simples para vender mais.</p>
-              <a href="#produtos" class="btn btn-primary">Comprar agora</a>
+              <span class="mini-tag">Compra rápida</span>
+              <h3>Escolha o produto e finalize seu pedido sem complicação.</h3>
+              <p>Catálogo direto, modal bonito, carrinho funcional e mensagem pronta no WhatsApp.</p>
+              <a href="#produtos" class="btn btn-primary pulse-soft">Comprar agora</a>
             </div>
           </article>
 
           <div class="highlight-side">
             <article class="small-card">
               <h4>Assistência técnica</h4>
-              <p>Troca de tela, bateria, conector e análise.</p>
-              <a href="#assistencia" class="text-link">Pedir orçamento</a>
+              <p>Troca de tela, bateria, conector de carga, limpeza técnica e análise completa.</p>
+              <a
+                href="https://wa.me/553183209688?text=Olá! Quero fazer um orçamento de assistência técnica."
+                class="text-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Pedir orçamento
+              </a>
             </article>
 
             <article class="small-card">
-              <h4>Acessórios em geral</h4>
-              <p>Capinhas, cabos, carregadores e mais.</p>
-              <a href="#produtos" class="text-link">Ver produtos</a>
+              <h4>Acessórios com giro forte</h4>
+              <p>Capinhas, cabos, carregadores, caixa de som, suporte, garrafa térmica e fones.</p>
+              <a href="#produtos" class="text-link">Ver catálogo</a>
             </article>
           </div>
         </div>
@@ -170,95 +203,19 @@
       <div class="container">
         <div class="section-head">
           <span class="section-tag">Produtos</span>
-          <h2>Produtos em destaque</h2>
-          <p>Escolha, adicione ao carrinho e feche rápido pelo WhatsApp.</p>
+          <h2>Escolha o que você precisa</h2>
+          <p>Produtos com descrição, especificações, carrinho e botão de compra funcionando.</p>
         </div>
 
-        <div class="category-pills">
-          <button class="pill active" type="button">Todos</button>
-          <button class="pill" type="button">Celulares</button>
-          <button class="pill" type="button">Capinhas</button>
-          <button class="pill" type="button">Carregadores</button>
-          <button class="pill" type="button">Acessórios</button>
+        <div class="category-pills" id="categoryFilters">
+          <button class="pill active" type="button" data-category="Todos">Todos</button>
+          <button class="pill" type="button" data-category="Celulares">Celulares</button>
+          <button class="pill" type="button" data-category="Capinhas">Capinhas</button>
+          <button class="pill" type="button" data-category="Carregadores">Carregadores</button>
+          <button class="pill" type="button" data-category="Acessórios">Acessórios</button>
         </div>
 
-        <div class="products-grid">
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://placehold.co/720x720/f6f8fc/111111?text=Smartphone+Premium" alt="Smartphone Premium" loading="lazy" />
-              <span class="floating-label">Mais vendido</span>
-            </div>
-            <div class="product-body">
-              <h3>Smartphone Premium</h3>
-              <p>Desempenho forte, visual premium e venda rápida.</p>
-              <div class="price-row">
-                <strong>R$ 1.999</strong>
-                <span>12x sem juros</span>
-              </div>
-              <div class="product-actions-grid">
-                <button class="btn btn-light add-cart" data-product="Smartphone Premium" data-price="1999" data-image="https://placehold.co/720x720/f6f8fc/111111?text=Smartphone+Premium">Adicionar</button>
-                <button class="btn btn-primary buy-now" data-product="Smartphone Premium" data-price="1999" data-image="https://placehold.co/720x720/f6f8fc/111111?text=Smartphone+Premium">Comprar agora</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://placehold.co/720x720/f6f8fc/111111?text=Capinha+Premium" alt="Capinha Premium" loading="lazy" />
-              <span class="floating-label">Novo</span>
-            </div>
-            <div class="product-body">
-              <h3>Capinha Premium</h3>
-              <p>Proteção, estilo e ótimo giro no balcão.</p>
-              <div class="price-row">
-                <strong>R$ 49,90</strong>
-                <span>Várias cores</span>
-              </div>
-              <div class="product-actions-grid">
-                <button class="btn btn-light add-cart" data-product="Capinha Premium" data-price="49.90" data-image="https://placehold.co/720x720/f6f8fc/111111?text=Capinha+Premium">Adicionar</button>
-                <button class="btn btn-primary buy-now" data-product="Capinha Premium" data-price="49.90" data-image="https://placehold.co/720x720/f6f8fc/111111?text=Capinha+Premium">Comprar agora</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://placehold.co/720x720/f6f8fc/111111?text=Carregador+Turbo" alt="Carregador Turbo" loading="lazy" />
-              <span class="floating-label">Destaque</span>
-            </div>
-            <div class="product-body">
-              <h3>Carregador Turbo</h3>
-              <p>Carregamento rápido para o dia a dia.</p>
-              <div class="price-row">
-                <strong>R$ 39,90</strong>
-                <span>Alta saída</span>
-              </div>
-              <div class="product-actions-grid">
-                <button class="btn btn-light add-cart" data-product="Carregador Turbo" data-price="39.90" data-image="https://placehold.co/720x720/f6f8fc/111111?text=Carregador+Turbo">Adicionar</button>
-                <button class="btn btn-primary buy-now" data-product="Carregador Turbo" data-price="39.90" data-image="https://placehold.co/720x720/f6f8fc/111111?text=Carregador+Turbo">Comprar agora</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://placehold.co/720x720/f6f8fc/111111?text=Fone+Bluetooth" alt="Fone Bluetooth" loading="lazy" />
-              <span class="floating-label">Oferta</span>
-            </div>
-            <div class="product-body">
-              <h3>Fone Bluetooth</h3>
-              <p>Som limpo, visual moderno e ótima margem.</p>
-              <div class="price-row">
-                <strong>R$ 89,90</strong>
-                <span>Entrega rápida</span>
-              </div>
-              <div class="product-actions-grid">
-                <button class="btn btn-light add-cart" data-product="Fone Bluetooth" data-price="89.90" data-image="https://placehold.co/720x720/f6f8fc/111111?text=Fone+Bluetooth">Adicionar</button>
-                <button class="btn btn-primary buy-now" data-product="Fone Bluetooth" data-price="89.90" data-image="https://placehold.co/720x720/f6f8fc/111111?text=Fone+Bluetooth">Comprar agora</button>
-              </div>
-            </div>
-          </article>
-        </div>
+        <div class="products-grid" id="productsGrid"></div>
       </div>
     </section>
 
@@ -266,19 +223,34 @@
       <div class="container assistance-grid">
         <div class="assistance-copy">
           <span class="section-tag">Assistência técnica</span>
-          <h2>Conserto com resposta rápida</h2>
-          <p>Seu aparelho com mais agilidade, atendimento direto e orçamento fácil no WhatsApp.</p>
+          <h2>Seu aparelho precisa de conserto? Resolva hoje.</h2>
+          <p>
+            Atendimento rápido para quem precisa trocar tela, bateria, conector, alto-falante,
+            microfone ou fazer análise técnica completa.
+          </p>
+
           <ul>
-            <li>Troca de tela</li>
-            <li>Troca de bateria</li>
-            <li>Conector de carga</li>
-            <li>Análise de defeitos</li>
+            <li>Troca de tela quebrada</li>
+            <li>Troca de bateria fraca</li>
+            <li>Conector de carga com defeito</li>
+            <li>Limpeza técnica e análise</li>
           </ul>
-          <a href="https://wa.me/553183209688?text=Olá!%20Quero%20um%20orçamento%20na%20Sonatech%20BH." class="btn btn-primary" target="_blank" rel="noopener noreferrer">Pedir orçamento</a>
+
+          <div class="assist-actions">
+            <a
+              href="https://wa.me/553183209688?text=Olá! Quero orçamento para conserto de celular."
+              class="btn btn-primary pulse-soft"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Pedir orçamento
+            </a>
+            <a href="#contato" class="btn btn-light">Ver localização</a>
+          </div>
         </div>
 
         <div class="assistance-visual">
-          <img src="https://placehold.co/1100x850/f3f7fb/111111?text=Assist%C3%AAncia+T%C3%A9cnica" alt="Assistência técnica" loading="lazy" />
+          <img src="images/assistencia.jpg" alt="Assistência técnica de celulares" loading="lazy" />
         </div>
       </div>
     </section>
@@ -288,7 +260,7 @@
         <div class="contact-box">
           <span class="section-tag">Contato</span>
           <h2>Fale com a Sonatech BH</h2>
-          <p>Atendimento rápido para compra, orçamento e suporte.</p>
+          <p>Compra, orçamento, retirada e atendimento direto no WhatsApp.</p>
 
           <div class="contact-item">
             <strong>WhatsApp</strong>
@@ -297,19 +269,28 @@
 
           <div class="contact-item">
             <strong>Endereço</strong>
-            <span>Rua Santo Inácio de Loyola 391</span>
+            <span>Rua Santo Inácio de Loyola 391 - Jardim Felicidade</span>
           </div>
 
           <div class="contact-item">
-            <strong>Mensagem principal</strong>
-            <span>O CAMINHO A VERDADE E A VIDA 🕊</span>
+            <strong>Atendimento</strong>
+            <span>Venda de produtos e manutenção de telefone</span>
           </div>
+
+          <a
+            href="https://wa.me/553183209688?text=Olá! Quero atendimento na Sonatech BH."
+            class="btn btn-primary btn-full pulse-soft"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Chamar no WhatsApp
+          </a>
         </div>
 
         <div class="map-box">
           <iframe
-            title="Mapa"
-            src="https://www.google.com/maps?q=Rua%20Santo%20In%C3%A1cio%20de%20Loyola%20391&output=embed"
+            title="Mapa da Sonatech BH"
+            src="https://www.google.com/maps?q=Rua%20Santo%20Inácio%20de%20Loyola%20391%20Jardim%20Felicidade&output=embed"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -320,9 +301,9 @@
 
   <footer class="site-footer">
     <div class="container footer-wrap">
-      <div>
+      <div class="footer-brand">
         <h3>Sonatech BH</h3>
-        <p>Assistência técnica e acessórios em geral.</p>
+        <p>Venda de celulares, acessórios e assistência técnica com atendimento rápido.</p>
       </div>
 
       <div class="footer-links">
@@ -331,14 +312,34 @@
         <a href="#assistencia">Assistência</a>
         <a href="#contato">Contato</a>
       </div>
+
+      <div class="footer-social">
+        <a href="https://www.instagram.com/sonatech_bh?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+          @sonatech_bh
+        </a>
+        <a href="https://www.instagram.com/pldigitalgroup?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+          @pldigitalgroup
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-wrap">
+        <span>© 2026 Sonatech BH. Todos os direitos reservados.</span>
+        <span>
+          Criado por
+          <a href="https://www.pldigitalg.com.br" target="_blank" rel="noopener noreferrer">www.pldigitalG.com.br</a>
+        </span>
+      </div>
     </div>
   </footer>
 
   <a
-    class="floating-whatsapp"
-    href="https://wa.me/553183209688?text=Olá!%20Quero%20atendimento%20na%20Sonatech%20BH."
+    class="floating-whatsapp pulse-strong"
+    href="https://wa.me/553183209688?text=Olá! Quero atendimento na Sonatech BH."
     target="_blank"
     rel="noopener noreferrer"
+    aria-label="Chamar no WhatsApp"
   >
     WhatsApp
   </a>
@@ -349,7 +350,10 @@
 
   <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
     <div class="drawer-header">
-      <h3>Seu carrinho</h3>
+      <div>
+        <span class="mini-tag">Carrinho</span>
+        <h3>Seu pedido</h3>
+      </div>
       <button class="close-btn" id="closeCart" aria-label="Fechar carrinho">✕</button>
     </div>
 
@@ -360,7 +364,7 @@
         <span>Total</span>
         <strong id="cartTotal">R$ 0,00</strong>
       </div>
-      <button class="btn btn-primary btn-full" id="checkoutWhatsapp">Fechar no WhatsApp</button>
+      <button class="btn btn-primary btn-full pulse-soft" id="checkoutWhatsapp">Fechar no WhatsApp</button>
     </div>
   </aside>
 
@@ -368,13 +372,23 @@
 
   <aside class="side-modal" id="sideModal" aria-hidden="true">
     <div class="side-modal-inner">
-      <button class="close-btn" id="closeModal" aria-label="Fechar modal">✕</button>
+      <div class="modal-top">
+        <div>
+          <span class="mini-tag" id="modalCategory">Categoria</span>
+          <h3 id="modalTitle">Produto</h3>
+        </div>
+        <button class="close-btn" id="closeModal" aria-label="Fechar modal">✕</button>
+      </div>
 
-      <img id="modalImage" src="https://placehold.co/720x720" alt="Produto selecionado" />
+      <img id="modalImage" src="" alt="Produto selecionado" />
 
-      <span class="mini-tag">Compra rápida</span>
-      <h3 id="modalTitle">Produto</h3>
       <p class="modal-price" id="modalPrice">R$ 0,00</p>
+      <p class="modal-description" id="modalDescription"></p>
+
+      <div class="specs-box">
+        <h4>Especificações</h4>
+        <ul id="modalSpecs"></ul>
+      </div>
 
       <div class="form-grid">
         <input type="text" id="clientName" placeholder="Seu nome" />
@@ -389,7 +403,7 @@
         <textarea id="clientNotes" rows="4" placeholder="Observações do pedido"></textarea>
       </div>
 
-      <button class="btn btn-primary btn-full" id="finishOrder">Finalizar no WhatsApp</button>
+      <button class="btn btn-primary btn-full pulse-soft" id="finishOrder">Finalizar no WhatsApp</button>
     </div>
   </aside>
 
