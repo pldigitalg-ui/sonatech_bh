@@ -7,7 +7,7 @@ const products = [
     badge: "Mais vendido",
     name: "Xiaomi Redmi Note 13 256GB",
     price: 1499.90,
-    image: "images/celular-redmi-note-13.jpg",
+    image: "img/celular-redmi-note-13.jpg",
     description: "Celular rápido, bonito e pronto para quem quer desempenho forte no dia a dia sem travar.",
     shortSpecs: ["Tela 6.67", "Bateria 5000mAh", "256GB"],
     specs: [
@@ -25,7 +25,7 @@ const products = [
     badge: "Oferta",
     name: "Samsung Galaxy A15 128GB",
     price: 1199.90,
-    image: "images/celular-galaxy-a15.jpg",
+    image: "img/celular-galaxy-a15.jpg",
     description: "Modelo equilibrado para quem quer bateria boa, tela grande e ótimo custo-benefício.",
     shortSpecs: ["Tela 6.5", "128GB", "5000mAh"],
     specs: [
@@ -43,7 +43,7 @@ const products = [
     badge: "Destaque",
     name: "Motorola Moto G84 256GB",
     price: 1599.90,
-    image: "images/celular-moto-g84.jpg",
+    image: "img/celular-moto-g84.jpg",
     description: "Celular premium para quem quer velocidade, armazenamento e visual moderno.",
     shortSpecs: ["256GB", "5G", "RAM 8GB"],
     specs: [
@@ -61,7 +61,7 @@ const products = [
     badge: "Novo",
     name: "iPhone 11 128GB",
     price: 2299.90,
-    image: "images/celular-iphone-11.jpg",
+    image: "img/celular-iphone-11.jpg",
     description: "iPhone forte para quem quer câmera de qualidade, desempenho estável e status premium.",
     shortSpecs: ["128GB", "iOS", "Dupla câmera"],
     specs: [
@@ -79,7 +79,7 @@ const products = [
     badge: "Top custo-benefício",
     name: "Realme C67 256GB",
     price: 1299.90,
-    image: "images/celular-realme-c67.jpg",
+    image: "img/celular-realme-c67.jpg",
     description: "Celular com muito espaço, bateria forte e ótima fluidez para uso diário.",
     shortSpecs: ["256GB", "5000mAh", "RAM 8GB"],
     specs: [
@@ -97,7 +97,7 @@ const products = [
     badge: "5G",
     name: "Samsung Galaxy A25 256GB",
     price: 1699.90,
-    image: "images/celular-galaxy-a25.jpg",
+    image: "img/celular-galaxy-a25.jpg",
     description: "Mais velocidade, ótimo espaço interno e desempenho forte para quem usa muito o celular.",
     shortSpecs: ["5G", "256GB", "AMOLED"],
     specs: [
@@ -115,7 +115,7 @@ const products = [
     badge: "Premium",
     name: "Xiaomi Poco X6 256GB",
     price: 1899.90,
-    image: "images/celular-poco-x6.jpg",
+    image: "img/celular-poco-x6.jpg",
     description: "Desempenho forte, tela linda e potência para quem quer celular acima da média.",
     shortSpecs: ["256GB", "AMOLED", "67W"],
     specs: [
@@ -134,7 +134,7 @@ const products = [
     badge: "Proteção total",
     name: "Capinha Anti Impacto Transparente",
     price: 39.90,
-    image: "images/capinha-antimpacto-transparente.jpg",
+    image: "img/capinha-antimpacto-transparente.jpg",
     description: "Proteção reforçada sem esconder o visual do aparelho.",
     shortSpecs: ["TPU", "Bordas reforçadas", "Transparente"],
     specs: [
@@ -152,7 +152,7 @@ const products = [
     badge: "Premium",
     name: "Capinha Premium Silicone Fosca",
     price: 44.90,
-    image: "images/capinha-silicone-fosca.jpg",
+    image: "img/capinha-silicone-fosca.jpg",
     description: "Toque macio, encaixe perfeito e visual elegante.",
     shortSpecs: ["Silicone", "Fosca", "Toque macio"],
     specs: [
@@ -170,7 +170,7 @@ const products = [
     badge: "Luxo",
     name: "Capinha MagSafe Premium",
     price: 59.90,
-    image: "images/capinha-magsafe.jpg",
+    image: "img/capinha-magsafe.jpg",
     description: "Capinha moderna com visual premium e encaixe seguro.",
     shortSpecs: ["Premium", "Magnética", "Acabamento fino"],
     specs: [
@@ -188,7 +188,7 @@ const products = [
     badge: "Mais vendida",
     name: "Capinha Armor Reforçada",
     price: 49.90,
-    image: "images/capinha-armor.jpg",
+    image: "img/capinha-armor.jpg",
     description: "Proteção mais forte para quem trabalha na rua ou usa muito o aparelho.",
     shortSpecs: ["Reforçada", "Alta proteção", "Grip firme"],
     specs: [
@@ -206,7 +206,7 @@ const products = [
     badge: "Estilo",
     name: "Capinha Color Premium",
     price: 34.90,
-    image: "images/capinha-color.jpg",
+    image: "img/capinha-color.jpg",
     description: "Capinha bonita, leve e com acabamento limpo para valorizar o celular.",
     shortSpecs: ["Colorida", "Leve", "Estilosa"],
     specs: [
@@ -224,7 +224,7 @@ const products = [
     badge: "Executiva",
     name: "Capinha Carteira Flip",
     price: 64.90,
-    image: "images/capinha-carteira.jpg",
+    image: "img/capinha-carteira.jpg",
     description: "Modelo elegante para quem quer proteção e praticidade.",
     shortSpecs: ["Flip", "Carteira", "Elegante"],
     specs: [
@@ -242,7 +242,7 @@ const products = [
     badge: "Clássica",
     name: "Capinha Lisa Slim",
     price: 29.90,
-    image: "images/capinha-slim.jpg",
+    image: "img/capinha-slim.jpg",
     description: "Proteção básica com encaixe fino e preço bom para vender rápido.",
     shortSpecs: ["Slim", "Leve", "Preço forte"],
     specs: [
@@ -261,7 +261,7 @@ const products = [
     badge: "Turbo",
     name: "Carregador Turbo 20W USB-C",
     price: 49.90,
-    image: "images/carregador-turbo-20w.jpg",
+    image: "img/carregador-turbo-20w.jpg",
     description: "Carregamento rápido para quem quer mais praticidade no dia a dia.",
     shortSpecs: ["20W", "USB-C", "Rápido"],
     specs: [
@@ -279,7 +279,7 @@ const products = [
     badge: "Mais forte",
     name: "Carregador Turbo 33W com Cabo",
     price: 69.90,
-    image: "images/carregador-turbo-33w.jpg",
+    image: "img/carregador-turbo-33w.jpg",
     description: "Mais potência, mais velocidade e melhor experiência na recarga.",
     shortSpecs: ["33W", "Cabo incluso", "Turbo"],
     specs: [
@@ -298,7 +298,7 @@ const products = [
     badge: "Som forte",
     name: "Caixa de Som Bluetooth Portátil",
     price: 129.90,
-    image: "images/caixa-som-bluetooth.jpg",
+    image: "img/caixa-som-bluetooth.jpg",
     description: "Som forte, conexão rápida e ótimo produto para presente e revenda.",
     shortSpecs: ["Bluetooth", "Portátil", "Som forte"],
     specs: [
@@ -316,7 +316,7 @@ const products = [
     badge: "Essencial",
     name: "Cabo Conector USB-C Reforçado",
     price: 24.90,
-    image: "images/cabo-usbc-reforcado.jpg",
+    image: "img/cabo-usbc-reforcado.jpg",
     description: "Cabo resistente para carregar com segurança e durar mais.",
     shortSpecs: ["USB-C", "Reforçado", "1 metro"],
     specs: [
@@ -334,7 +334,7 @@ const products = [
     badge: "Prático",
     name: "Suporte Veicular para Telefone",
     price: 39.90,
-    image: "images/suporte-veicular.jpg",
+    image: "img/suporte-veicular.jpg",
     description: "Mais praticidade e segurança para usar o celular no carro.",
     shortSpecs: ["Veicular", "Ajustável", "Firme"],
     specs: [
@@ -352,7 +352,7 @@ const products = [
     badge: "Utilidade",
     name: "Garrafa Térmica Inox 500ml",
     price: 59.90,
-    image: "images/garrafa-termica-500ml.jpg",
+    image: "img/garrafa-termica-500ml.jpg",
     description: "Produto bonito, útil e fácil de vender no balcão.",
     shortSpecs: ["500ml", "Inox", "Térmica"],
     specs: [
@@ -370,7 +370,7 @@ const products = [
     badge: "Áudio",
     name: "Fone Bluetooth Sem Fio Premium",
     price: 89.90,
-    image: "images/fone-bluetooth-premium.jpg",
+    image: "img/fone-bluetooth-premium.jpg",
     description: "Som limpo, conexão estável e produto que vende bem no impulso.",
     shortSpecs: ["Sem fio", "Bluetooth", "Case"],
     specs: [
@@ -388,7 +388,7 @@ const products = [
     badge: "Clássico",
     name: "Fone com Fio P2",
     price: 29.90,
-    image: "images/fone-com-fio-p2.jpg",
+    image: "img/fone-com-fio-p2.jpg",
     description: "Opção simples, útil e barata para quem quer ouvir sem depender de bateria.",
     shortSpecs: ["Com fio", "P2", "Leve"],
     specs: [
@@ -412,6 +412,9 @@ const dots = document.querySelectorAll(".dot");
 const productsGrid = document.getElementById("productsGrid");
 const filterButtons = document.querySelectorAll("#categoryFilters .pill");
 
+const headerSearchDesktop = document.getElementById("headerSearchDesktop");
+const headerSearchMobile = document.getElementById("headerSearchMobile");
+
 const cartTrigger = document.getElementById("cartTrigger");
 const cartDrawer = document.getElementById("cartDrawer");
 const cartOverlay = document.getElementById("cartOverlay");
@@ -432,17 +435,12 @@ const modalDescription = document.getElementById("modalDescription");
 const modalSpecs = document.getElementById("modalSpecs");
 const finishOrder = document.getElementById("finishOrder");
 
-const clientName = document.getElementById("clientName");
-const clientPhone = document.getElementById("clientPhone");
-const clientAddress = document.getElementById("clientAddress");
-const paymentMethod = document.getElementById("paymentMethod");
-const clientNotes = document.getElementById("clientNotes");
-
 let currentSlide = 0;
 let sliderInterval;
 let selectedProduct = null;
 let currentCategory = "Todos";
 let cart = [];
+let searchTerm = "";
 
 function formatPrice(value) {
   return Number(value).toLocaleString("pt-BR", {
@@ -466,7 +464,7 @@ if (menuToggle && mobileMenu) {
   });
 }
 
-/* HERO SLIDER */
+/* HERO */
 function showSlide(index) {
   slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
   dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
@@ -512,10 +510,23 @@ if (backToTop) {
   });
 }
 
-/* RENDER PRODUTOS */
+/* FILTRO E BUSCA */
+function getFilteredProducts() {
+  return products.filter((product) => {
+    const categoryMatch = currentCategory === "Todos" || product.category === currentCategory;
+    const searchMatch =
+      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.shortSpecs.join(" ").toLowerCase().includes(searchTerm.toLowerCase());
+
+    return categoryMatch && searchMatch;
+  });
+}
+
 function productCardTemplate(product) {
   return `
-    <article class="product-card">
+    <article class="product-card" data-id="${product.id}" tabindex="0" role="button" aria-label="Abrir detalhes de ${product.name}">
       <div class="product-image">
         <img src="${product.image}" alt="${product.name}" loading="lazy" />
         <span class="floating-label">${product.badge}</span>
@@ -533,43 +544,44 @@ function productCardTemplate(product) {
           <strong>${formatPrice(product.price)}</strong>
           <span>${product.category}</span>
         </div>
-
-        <div class="product-actions-grid">
-          <button class="btn btn-light add-cart" data-id="${product.id}">Adicionar ao carrinho</button>
-          <button class="btn btn-primary buy-now pulse-soft" data-id="${product.id}">Comprar agora</button>
-        </div>
       </div>
     </article>
   `;
 }
 
-function renderProducts(category = "Todos") {
-  const filtered = category === "Todos"
-    ? products
-    : products.filter((product) => product.category === category);
+function renderProducts() {
+  const filtered = getFilteredProducts();
+
+  if (!filtered.length) {
+    productsGrid.innerHTML = `
+      <div class="empty-cart" style="grid-column: 1 / -1;">
+        Nenhum produto encontrado.
+      </div>
+    `;
+    return;
+  }
 
   productsGrid.innerHTML = filtered.map(productCardTemplate).join("");
-
   bindProductButtons();
 }
 
 function bindProductButtons() {
-  document.querySelectorAll(".add-cart").forEach((button) => {
-    button.addEventListener("click", () => {
-      const id = Number(button.dataset.id);
-      const product = products.find((item) => item.id === id);
-      if (!product) return;
-      addToCart(product);
-      openCart();
-    });
-  });
+  document.querySelectorAll(".product-card").forEach((card) => {
+    const id = Number(card.dataset.id);
 
-  document.querySelectorAll(".buy-now").forEach((button) => {
-    button.addEventListener("click", () => {
-      const id = Number(button.dataset.id);
+    card.addEventListener("click", () => {
       const product = products.find((item) => item.id === id);
       if (!product) return;
       openModal(product);
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        const product = products.find((item) => item.id === id);
+        if (!product) return;
+        openModal(product);
+      }
     });
   });
 }
@@ -579,9 +591,42 @@ filterButtons.forEach((button) => {
     filterButtons.forEach((btn) => btn.classList.remove("active"));
     button.classList.add("active");
     currentCategory = button.dataset.category;
-    renderProducts(currentCategory);
+    renderProducts();
   });
 });
+
+function syncSearch(value) {
+  searchTerm = value.trim();
+
+  if (headerSearchDesktop && headerSearchDesktop.value !== value) {
+    headerSearchDesktop.value = value;
+  }
+
+  if (headerSearchMobile && headerSearchMobile.value !== value) {
+    headerSearchMobile.value = value;
+  }
+
+  renderProducts();
+
+  if (searchTerm) {
+    const section = document.getElementById("produtos");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+}
+
+if (headerSearchDesktop) {
+  headerSearchDesktop.addEventListener("input", (event) => {
+    syncSearch(event.target.value);
+  });
+}
+
+if (headerSearchMobile) {
+  headerSearchMobile.addEventListener("input", (event) => {
+    syncSearch(event.target.value);
+  });
+}
 
 /* CARRINHO */
 function openCart() {
@@ -680,7 +725,7 @@ function changeQuantity(index, action) {
   renderCart();
 }
 
-/* MODAL PRODUTO */
+/* MODAL */
 function openModal(product) {
   selectedProduct = product;
   modalImage.src = product.image;
@@ -727,6 +772,16 @@ document.addEventListener("click", (event) => {
   }
 });
 
+if (finishOrder) {
+  finishOrder.addEventListener("click", () => {
+    if (!selectedProduct) return;
+
+    addToCart(selectedProduct);
+    closeProductModal();
+    openCart();
+  });
+}
+
 if (checkoutWhatsapp) {
   checkoutWhatsapp.addEventListener("click", () => {
     if (!cart.length) {
@@ -749,32 +804,6 @@ if (checkoutWhatsapp) {
     lines.push("Endereço da loja: Rua Santo Inácio de Loyola 391 - Jardim Felicidade");
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
-    window.open(url, "_blank");
-  });
-}
-
-if (finishOrder) {
-  finishOrder.addEventListener("click", () => {
-    if (!selectedProduct) return;
-
-    const message = [
-      "Olá! Quero finalizar meu pedido na Sonatech BH.",
-      "",
-      `Produto: ${selectedProduct.name}`,
-      `Categoria: ${selectedProduct.category}`,
-      `Valor: ${formatPrice(selectedProduct.price)}`,
-      "",
-      "Especificações:",
-      ...selectedProduct.specs.map((spec) => `- ${spec}`),
-      "",
-      `Nome: ${clientName.value.trim() || "Não informado"}`,
-      `Telefone: ${clientPhone.value.trim() || "Não informado"}`,
-      `Endereço: ${clientAddress.value.trim() || "Não informado"}`,
-      `Pagamento: ${paymentMethod.value}`,
-      `Observações: ${clientNotes.value.trim() || "Nenhuma"}`
-    ].join("\n");
-
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   });
 }
