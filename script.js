@@ -1,5 +1,27 @@
 const WHATSAPP_NUMBER = "553183209688";
 
+const PLACEHOLDER_IMAGE =
+  "data:image/svg+xml;charset=UTF-8," +
+  encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+      <defs>
+        <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stop-color="#eef4fb"/>
+          <stop offset="100%" stop-color="#dbe7f5"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="800" fill="url(#g)"/>
+      <rect x="170" y="120" width="460" height="560" rx="36" fill="#ffffff" stroke="#cfdcec" stroke-width="10"/>
+      <rect x="230" y="190" width="340" height="260" rx="22" fill="#eaf2fb"/>
+      <circle cx="400" cy="260" r="54" fill="#bfd4ea"/>
+      <path d="M290 420c28-52 72-86 110-86 38 0 81 34 110 86" fill="#bfd4ea"/>
+      <rect x="245" y="510" width="310" height="22" rx="11" fill="#d5e2f0"/>
+      <rect x="275" y="552" width="250" height="18" rx="9" fill="#dfe9f4"/>
+      <rect x="310" y="590" width="180" height="18" rx="9" fill="#dfe9f4"/>
+      <text x="400" y="665" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#6b7c93">Imagem em breve</text>
+    </svg>
+  `);
+
 const products = [
   {
     id: 1,
@@ -127,6 +149,7 @@ const products = [
       "Ótimo para jogos, edição e multitarefa"
     ]
   },
+
   {
     id: 8,
     category: "Capinhas",
@@ -253,6 +276,7 @@ const products = [
       "Boa opção para giro"
     ]
   },
+
   {
     id: 15,
     category: "Carregadores",
@@ -289,6 +313,7 @@ const products = [
       "Excelente custo-benefício"
     ]
   },
+
   {
     id: 17,
     category: "Acessórios",
@@ -451,45 +476,35 @@ function formatPrice(value) {
   });
 }
 
-function ensureCheckoutFields() {
-  if (!cartDrawer) return;
-  if (document.getElementById("customerName")) return;
+function safeImage(path) {
+  return path || PLACEHOLDER_IMAGE;
+}
 
-  const drawerFooter = cartDrawer.querySelector(".drawer-footer");
-  if (!drawerFooter) return;
+function setImageFallback(img) {
+  if (!img) return;
+  img.onerror = function () {
+    this.onerror = null;
+    this.src = PLACEHOLDER_IMAGE;
+  };
+}
 
-  const formWrap = document.createElement("div");
-  formWrap.className = "checkout-fields";
-  formWrap.style.display = "grid";
-  formWrap.style.gap = "10px";
-  formWrap.style.marginBottom = "16px";
+function openCart() {
+  if (!cartDrawer || !cartOverlay) return;
+  cartDrawer.classList.add("active");
+  cartOverlay.classList.add("active");
+  cartDrawer.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
 
-  formWrap.innerHTML = `
-    <input
-      type="text"
-      id="customerName"
-      placeholder="Seu nome"
-      style="width:100%;height:46px;padding:0 14px;border-radius:14px;border:1px solid #dbe5f0;outline:none;font:inherit;"
-    />
-    <input
-      type="text"
-      id="customerAddress"
-      placeholder="Seu endereço"
-      style="width:100%;height:46px;padding:0 14px;border-radius:14px;border:1px solid #dbe5f0;outline:none;font:inherit;"
-    />
-    <select
-      id="customerPayment"
-      style="width:100%;height:46px;padding:0 14px;border-radius:14px;border:1px solid #dbe5f0;outline:none;font:inherit;background:#fff;"
-    >
-      <option value="">Forma de pagamento</option>
-      <option value="Pix">Pix</option>
-      <option value="Débito">Débito</option>
-      <option value="Crédito">Crédito</option>
-      <option value="Dinheiro">Dinheiro</option>
-    </select>
-  `;
+function closeCartDrawer() {
+  if (!cartDrawer || !cartOverlay) return;
+  cartDrawer.classList.remove("active");
+  cartOverlay.classList.remove("active");
+  cartDrawer.setAttribute("aria-hidden", "true");
 
-  drawerFooter.insertBefore(formWrap, checkoutWhatsapp || drawerFooter.firstChild);
+  if (!sideModal.classList.contains("active") && !lightboxOverlay.classList.contains("active")) {
+    document.body.style.overflow = "";
+  }
 }
 
 /* MENU MOBILE */
@@ -540,12 +555,10 @@ if (slides.length && dots.length) {
 
 /* BACK TO TOP */
 window.addEventListener("scroll", () => {
-  if (backToTop) {
-    if (window.scrollY > 400) {
-      backToTop.classList.add("show");
-    } else {
-      backToTop.classList.remove("show");
-    }
+  if (window.scrollY > 400) {
+    backToTop?.classList.add("show");
+  } else {
+    backToTop?.classList.remove("show");
   }
 });
 
@@ -573,7 +586,7 @@ function productCardTemplate(product) {
   return `
     <article class="product-card" data-id="${product.id}" tabindex="0" role="button" aria-label="Abrir detalhes de ${product.name}">
       <div class="product-image">
-        <img src="${product.image}" alt="${product.name}" loading="lazy" />
+        <img src="${safeImage(product.image)}" alt="${product.name}" loading="lazy" />
         <span class="floating-label">${product.badge}</span>
       </div>
 
@@ -589,18 +602,12 @@ function productCardTemplate(product) {
           <strong>${formatPrice(product.price)}</strong>
           <span>${product.category}</span>
         </div>
-
-        <button class="btn btn-primary btn-full add-to-cart" type="button" data-id="${product.id}">
-          Adicionar ao carrinho
-        </button>
       </div>
     </article>
   `;
 }
 
 function renderProducts() {
-  if (!productsGrid) return;
-
   const filtered = getFilteredProducts();
 
   if (!filtered.length) {
@@ -613,6 +620,8 @@ function renderProducts() {
   }
 
   productsGrid.innerHTML = filtered.map(productCardTemplate).join("");
+
+  document.querySelectorAll(".product-card img").forEach(setImageFallback);
   bindProductButtons();
 }
 
@@ -623,10 +632,6 @@ function bindProductButtons() {
     card.addEventListener("click", () => {
       const product = products.find((item) => item.id === id);
       if (!product) return;
-
-      card.classList.add("clicking");
-      setTimeout(() => card.classList.remove("clicking"), 180);
-
       openModal(product, card);
     });
 
@@ -637,26 +642,6 @@ function bindProductButtons() {
         if (!product) return;
         openModal(product, card);
       }
-    });
-  });
-
-  document.querySelectorAll(".add-to-cart").forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.stopPropagation();
-
-      const id = Number(button.dataset.id);
-      const product = products.find((item) => item.id === id);
-      if (!product) return;
-
-      addToCart(product);
-
-      button.textContent = "Adicionado";
-      button.disabled = true;
-
-      setTimeout(() => {
-        button.textContent = "Adicionar ao carrinho";
-        button.disabled = false;
-      }, 900);
     });
   });
 }
@@ -704,27 +689,6 @@ if (headerSearchMobile) {
 }
 
 /* CARRINHO */
-function openCart() {
-  if (!cartDrawer || !cartOverlay) return;
-
-  cartDrawer.classList.add("active");
-  cartOverlay.classList.add("active");
-  cartDrawer.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-}
-
-function closeCartDrawer() {
-  if (!cartDrawer || !cartOverlay) return;
-
-  cartDrawer.classList.remove("active");
-  cartOverlay.classList.remove("active");
-  cartDrawer.setAttribute("aria-hidden", "true");
-
-  if (!sideModal?.classList.contains("active") && !lightboxOverlay?.classList.contains("active")) {
-    document.body.style.overflow = "";
-  }
-}
-
 function updateBadge() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   if (cartBadge) cartBadge.textContent = totalItems;
@@ -736,8 +700,6 @@ function updateTotal() {
 }
 
 function renderCart() {
-  if (!cartItemsContainer) return;
-
   if (!cart.length) {
     cartItemsContainer.innerHTML = `<div class="empty-cart">Seu carrinho está vazio.</div>`;
     updateBadge();
@@ -747,21 +709,23 @@ function renderCart() {
 
   cartItemsContainer.innerHTML = cart.map((item, index) => `
     <article class="cart-item">
-      <img src="${item.image}" alt="${item.name}" />
+      <img src="${safeImage(item.image)}" alt="${item.name}" />
       <div>
         <h4>${item.name}</h4>
         <p>${formatPrice(item.price)}</p>
         <div class="qty-row">
           <div class="qty-controls">
-            <button class="qty-btn" type="button" data-action="minus" data-index="${index}">−</button>
+            <button class="qty-btn" data-action="minus" data-index="${index}">−</button>
             <span class="qty-value">${item.quantity}</span>
-            <button class="qty-btn" type="button" data-action="plus" data-index="${index}">+</button>
+            <button class="qty-btn" data-action="plus" data-index="${index}">+</button>
           </div>
-          <button class="remove-btn" type="button" data-action="remove" data-index="${index}">Remover</button>
+          <button class="remove-btn" data-action="remove" data-index="${index}">Remover</button>
         </div>
       </div>
     </article>
   `).join("");
+
+  document.querySelectorAll(".cart-item img").forEach(setImageFallback);
 
   updateBadge();
   updateTotal();
@@ -807,101 +771,75 @@ function changeQuantity(index, action) {
 }
 
 /* MODAL */
-function positionModalFromCard(card) {
-  if (!sideModal) return;
-
-  if (!card || window.innerWidth <= 768) {
-    sideModal.style.top = "";
-    sideModal.style.left = "";
-    sideModal.style.right = "";
-    return;
-  }
-
-  const rect = card.getBoundingClientRect();
-  const modalWidth = Math.min(420, window.innerWidth - 24);
-  const gap = 14;
-  const scrollTop = window.scrollY;
-  const scrollLeft = window.scrollX;
-
-  let left = rect.right + gap + scrollLeft;
-
-  if (left + modalWidth > scrollLeft + window.innerWidth - 12) {
-    left = rect.left + scrollLeft - modalWidth - gap;
-  }
-
-  if (left < scrollLeft + 12) {
-    left = scrollLeft + (window.innerWidth - modalWidth) / 2;
-  }
-
-  let top = rect.top + scrollTop;
-  const modalMaxHeight = window.innerHeight - 24;
-  const maxTop = scrollTop + window.innerHeight - modalMaxHeight - 12;
-
-  if (top > maxTop) top = maxTop;
-  if (top < scrollTop + 12) top = scrollTop + 12;
-
-  sideModal.style.top = `${top}px`;
-  sideModal.style.left = `${left}px`;
-  sideModal.style.right = "auto";
-}
-
 function openModal(product, card = null) {
-  if (!sideModal || !modalOverlay) return;
-
   selectedProduct = product;
 
-  if (modalImage) {
-    modalImage.src = product.image;
-    modalImage.alt = product.name;
+  if (card) {
+    card.style.transform = "scale(0.98)";
+    setTimeout(() => {
+      card.style.transform = "";
+    }, 120);
   }
 
-  if (modalTitle) modalTitle.textContent = product.name;
-  if (modalCategory) modalCategory.textContent = product.category;
-  if (modalPrice) modalPrice.textContent = formatPrice(product.price);
-  if (modalDescription) modalDescription.textContent = product.description;
-  if (modalSpecs) modalSpecs.innerHTML = product.specs.map((spec) => `<li>${spec}</li>`).join("");
+  modalImage.src = safeImage(product.image);
+  modalImage.alt = product.name;
+  setImageFallback(modalImage);
 
-  positionModalFromCard(card);
+  modalTitle.textContent = product.name;
+  modalCategory.textContent = product.category;
+  modalPrice.textContent = formatPrice(product.price);
+  modalDescription.textContent = product.description;
+  modalSpecs.innerHTML = product.specs.map((spec) => `<li>${spec}</li>`).join("");
 
   sideModal.classList.add("active");
   modalOverlay.classList.add("active");
   sideModal.setAttribute("aria-hidden", "false");
+
+  if (sideModal.classList.contains("product-modal-center")) {
+    sideModal.style.transform = "translate(-50%, -40%) scale(.96)";
+    requestAnimationFrame(() => {
+      sideModal.style.transform = "translate(-50%, -50%) scale(1)";
+    });
+  }
+
   document.body.style.overflow = "hidden";
 }
 
 function closeProductModal() {
-  if (!sideModal || !modalOverlay) return;
+  if (sideModal.classList.contains("product-modal-center")) {
+    sideModal.style.transform = "translate(-50%, -40%) scale(.96)";
+  }
 
-  sideModal.classList.remove("active");
-  modalOverlay.classList.remove("active");
-  sideModal.setAttribute("aria-hidden", "true");
-  sideModal.style.top = "";
-  sideModal.style.left = "";
-  sideModal.style.right = "";
+  setTimeout(() => {
+    sideModal.classList.remove("active");
+    modalOverlay.classList.remove("active");
+    sideModal.setAttribute("aria-hidden", "true");
 
-  if (!cartDrawer?.classList.contains("active") && !lightboxOverlay?.classList.contains("active")) {
+    if (sideModal.classList.contains("product-modal-center")) {
+      sideModal.style.transform = "";
+    }
+  }, 120);
+
+  if (!cartDrawer.classList.contains("active") && !lightboxOverlay.classList.contains("active")) {
     document.body.style.overflow = "";
   }
 }
 
 /* LIGHTBOX */
 function openLightbox(src, alt) {
-  if (!lightboxOverlay || !lightboxImage) return;
-
-  lightboxImage.src = src;
+  lightboxImage.src = safeImage(src);
   lightboxImage.alt = alt;
+  setImageFallback(lightboxImage);
   lightboxOverlay.classList.add("active");
   lightboxOverlay.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 }
 
 function closeLightbox() {
-  if (!lightboxOverlay) return;
-
   lightboxOverlay.classList.remove("active");
   lightboxOverlay.setAttribute("aria-hidden", "true");
 
-  if (!cartDrawer?.classList.contains("active") && !sideModal?.classList.contains("active")) {
+  if (!cartDrawer.classList.contains("active") && !sideModal.classList.contains("active")) {
     document.body.style.overflow = "";
   }
 }
@@ -935,14 +873,6 @@ if (lightboxOverlay) {
   });
 }
 
-window.addEventListener("resize", () => {
-  if (sideModal && sideModal.classList.contains("active")) {
-    sideModal.style.top = "";
-    sideModal.style.left = "";
-    sideModal.style.right = "";
-  }
-});
-
 document.addEventListener("click", (event) => {
   const target = event.target;
   if (!(target instanceof HTMLElement)) return;
@@ -972,36 +902,9 @@ if (checkoutWhatsapp) {
       return;
     }
 
-    const customerName = document.getElementById("customerName")?.value.trim() || "";
-    const customerAddress = document.getElementById("customerAddress")?.value.trim() || "";
-    const customerPayment = document.getElementById("customerPayment")?.value.trim() || "";
-
-    if (!customerName) {
-      alert("Preencha seu nome.");
-      document.getElementById("customerName")?.focus();
-      return;
-    }
-
-    if (!customerAddress) {
-      alert("Preencha seu endereço.");
-      document.getElementById("customerAddress")?.focus();
-      return;
-    }
-
-    if (!customerPayment) {
-      alert("Selecione a forma de pagamento.");
-      document.getElementById("customerPayment")?.focus();
-      return;
-    }
-
     const lines = [
       "Olá! Quero fechar meu pedido na Sonatech BH.",
-      "",
-      `Nome: ${customerName}`,
-      `Endereço: ${customerAddress}`,
-      `Pagamento: ${customerPayment}`,
-      "",
-      "Itens do pedido:"
+      ""
     ];
 
     cart.forEach((item) => {
@@ -1009,9 +912,9 @@ if (checkoutWhatsapp) {
     });
 
     lines.push("");
-    lines.push(`Total: ${cartTotal ? cartTotal.textContent : formatPrice(0)}`);
-    lines.push("");
+    lines.push(`Total: ${cartTotal.textContent}`);
     lines.push("Retirada/entrega a combinar.");
+    lines.push("Endereço da loja: Rua Santo Inácio de Loyola 391 - Jardim Felicidade");
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
     window.open(url, "_blank");
@@ -1019,6 +922,5 @@ if (checkoutWhatsapp) {
 }
 
 /* INIT */
-ensureCheckoutFields();
 renderProducts();
 renderCart();
