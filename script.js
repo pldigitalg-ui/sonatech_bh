@@ -488,12 +488,26 @@ function setImageFallback(img) {
   };
 }
 
+function lockBodyScroll() {
+  document.body.style.overflow = "hidden";
+}
+
+function unlockBodyScrollIfPossible() {
+  const cartOpen = cartDrawer?.classList.contains("active");
+  const modalOpen = sideModal?.classList.contains("active");
+  const lightboxOpen = lightboxOverlay?.classList.contains("active");
+
+  if (!cartOpen && !modalOpen && !lightboxOpen) {
+    document.body.style.overflow = "";
+  }
+}
+
 function openCart() {
   if (!cartDrawer || !cartOverlay) return;
   cartDrawer.classList.add("active");
   cartOverlay.classList.add("active");
   cartDrawer.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+  lockBodyScroll();
 }
 
 function closeCartDrawer() {
@@ -501,10 +515,7 @@ function closeCartDrawer() {
   cartDrawer.classList.remove("active");
   cartOverlay.classList.remove("active");
   cartDrawer.setAttribute("aria-hidden", "true");
-
-  if (!sideModal.classList.contains("active") && !lightboxOverlay.classList.contains("active")) {
-    document.body.style.overflow = "";
-  }
+  unlockBodyScrollIfPossible();
 }
 
 /* MENU MOBILE */
@@ -530,11 +541,13 @@ function showSlide(index) {
 }
 
 function nextSlide() {
+  if (!slides.length) return;
   const next = (currentSlide + 1) % slides.length;
   showSlide(next);
 }
 
 function startSlider() {
+  if (!slides.length) return;
   sliderInterval = setInterval(nextSlide, 5000);
 }
 
@@ -572,11 +585,13 @@ if (backToTop) {
 function getFilteredProducts() {
   return products.filter((product) => {
     const categoryMatch = currentCategory === "Todos" || product.category === currentCategory;
+    const searchValue = searchTerm.toLowerCase();
+
     const searchMatch =
-      product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.shortSpecs.join(" ").toLowerCase().includes(searchTerm.toLowerCase());
+      product.name.toLowerCase().includes(searchValue) ||
+      product.description.toLowerCase().includes(searchValue) ||
+      product.category.toLowerCase().includes(searchValue) ||
+      product.shortSpecs.join(" ").toLowerCase().includes(searchValue);
 
     return categoryMatch && searchMatch;
   });
@@ -602,12 +617,18 @@ function productCardTemplate(product) {
           <strong>${formatPrice(product.price)}</strong>
           <span>${product.category}</span>
         </div>
+
+        <button class="btn btn-primary btn-full add-to-cart" type="button" data-action="open-product" data-id="${product.id}">
+          Ver detalhes
+        </button>
       </div>
     </article>
   `;
 }
 
 function renderProducts() {
+  if (!productsGrid) return;
+
   const filtered = getFilteredProducts();
 
   if (!filtered.length) {
@@ -620,7 +641,6 @@ function renderProducts() {
   }
 
   productsGrid.innerHTML = filtered.map(productCardTemplate).join("");
-
   document.querySelectorAll(".product-card img").forEach(setImageFallback);
   bindProductButtons();
 }
@@ -628,8 +648,12 @@ function renderProducts() {
 function bindProductButtons() {
   document.querySelectorAll(".product-card").forEach((card) => {
     const id = Number(card.dataset.id);
+    const button = card.querySelector(".add-to-cart");
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest(".add-to-cart")) return;
+
       const product = products.find((item) => item.id === id);
       if (!product) return;
       openModal(product, card);
@@ -643,6 +667,16 @@ function bindProductButtons() {
         openModal(product, card);
       }
     });
+
+    if (button) {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const product = products.find((item) => item.id === id);
+        if (!product) return;
+        openModal(product, card);
+      });
+    }
   });
 }
 
@@ -700,6 +734,8 @@ function updateTotal() {
 }
 
 function renderCart() {
+  if (!cartItemsContainer) return;
+
   if (!cart.length) {
     cartItemsContainer.innerHTML = `<div class="empty-cart">Seu carrinho está vazio.</div>`;
     updateBadge();
@@ -709,17 +745,17 @@ function renderCart() {
 
   cartItemsContainer.innerHTML = cart.map((item, index) => `
     <article class="cart-item">
-      <img src="${safeImage(item.image)}" alt="${item.name}" />
+      <img src="${safeImage(item.image)}" alt="${item.name}" loading="lazy" />
       <div>
         <h4>${item.name}</h4>
         <p>${formatPrice(item.price)}</p>
         <div class="qty-row">
           <div class="qty-controls">
-            <button class="qty-btn" data-action="minus" data-index="${index}">−</button>
+            <button class="qty-btn" type="button" data-action="minus" data-index="${index}" aria-label="Diminuir quantidade">−</button>
             <span class="qty-value">${item.quantity}</span>
-            <button class="qty-btn" data-action="plus" data-index="${index}">+</button>
+            <button class="qty-btn" type="button" data-action="plus" data-index="${index}" aria-label="Aumentar quantidade">+</button>
           </div>
-          <button class="remove-btn" data-action="remove" data-index="${index}">Remover</button>
+          <button class="remove-btn" type="button" data-action="remove" data-index="${index}">Remover</button>
         </div>
       </div>
     </article>
@@ -741,7 +777,7 @@ function addToCart(product) {
       id: product.id,
       name: product.name,
       price: product.price,
-      image: product.image,
+      image: safeImage(product.image),
       quantity: 1
     });
   }
@@ -772,13 +808,15 @@ function changeQuantity(index, action) {
 
 /* MODAL */
 function openModal(product, card = null) {
+  if (!sideModal || !modalOverlay) return;
+
   selectedProduct = product;
 
   if (card) {
-    card.style.transform = "scale(0.98)";
+    card.classList.add("clicking");
     setTimeout(() => {
-      card.style.transform = "";
-    }, 120);
+      card.classList.remove("clicking");
+    }, 160);
   }
 
   modalImage.src = safeImage(product.image);
@@ -794,54 +832,37 @@ function openModal(product, card = null) {
   sideModal.classList.add("active");
   modalOverlay.classList.add("active");
   sideModal.setAttribute("aria-hidden", "false");
-
-  if (sideModal.classList.contains("product-modal-center")) {
-    sideModal.style.transform = "translate(-50%, -40%) scale(.96)";
-    requestAnimationFrame(() => {
-      sideModal.style.transform = "translate(-50%, -50%) scale(1)";
-    });
-  }
-
-  document.body.style.overflow = "hidden";
+  lockBodyScroll();
 }
 
 function closeProductModal() {
-  if (sideModal.classList.contains("product-modal-center")) {
-    sideModal.style.transform = "translate(-50%, -40%) scale(.96)";
-  }
+  if (!sideModal || !modalOverlay) return;
 
-  setTimeout(() => {
-    sideModal.classList.remove("active");
-    modalOverlay.classList.remove("active");
-    sideModal.setAttribute("aria-hidden", "true");
-
-    if (sideModal.classList.contains("product-modal-center")) {
-      sideModal.style.transform = "";
-    }
-  }, 120);
-
-  if (!cartDrawer.classList.contains("active") && !lightboxOverlay.classList.contains("active")) {
-    document.body.style.overflow = "";
-  }
+  sideModal.classList.remove("active");
+  modalOverlay.classList.remove("active");
+  sideModal.setAttribute("aria-hidden", "true");
+  unlockBodyScrollIfPossible();
 }
 
 /* LIGHTBOX */
 function openLightbox(src, alt) {
+  if (!lightboxOverlay || !lightboxImage) return;
+
   lightboxImage.src = safeImage(src);
-  lightboxImage.alt = alt;
+  lightboxImage.alt = alt || "Imagem ampliada";
   setImageFallback(lightboxImage);
+
   lightboxOverlay.classList.add("active");
   lightboxOverlay.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
+  lockBodyScroll();
 }
 
 function closeLightbox() {
+  if (!lightboxOverlay) return;
+
   lightboxOverlay.classList.remove("active");
   lightboxOverlay.setAttribute("aria-hidden", "true");
-
-  if (!cartDrawer.classList.contains("active") && !sideModal.classList.contains("active")) {
-    document.body.style.overflow = "";
-  }
+  unlockBodyScrollIfPossible();
 }
 
 /* EVENTOS */
@@ -880,8 +901,26 @@ document.addEventListener("click", (event) => {
   const action = target.dataset.action;
   const index = target.dataset.index;
 
-  if (action && index !== undefined) {
+  if (action && index !== undefined && (action === "plus" || action === "minus" || action === "remove")) {
     changeQuantity(Number(index), action);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+
+  if (lightboxOverlay?.classList.contains("active")) {
+    closeLightbox();
+    return;
+  }
+
+  if (sideModal?.classList.contains("active")) {
+    closeProductModal();
+    return;
+  }
+
+  if (cartDrawer?.classList.contains("active")) {
+    closeCartDrawer();
   }
 });
 
@@ -902,6 +941,8 @@ if (checkoutWhatsapp) {
       return;
     }
 
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
     const lines = [
       "Olá! Quero fechar meu pedido na Sonatech BH.",
       ""
@@ -912,7 +953,7 @@ if (checkoutWhatsapp) {
     });
 
     lines.push("");
-    lines.push(`Total: ${cartTotal.textContent}`);
+    lines.push(`Total: ${formatPrice(total)}`);
     lines.push("Retirada/entrega a combinar.");
     lines.push("Endereço da loja: Rua Santo Inácio de Loyola 391 - Jardim Felicidade");
 
@@ -920,6 +961,11 @@ if (checkoutWhatsapp) {
     window.open(url, "_blank");
   });
 }
+
+/* FALLBACK GLOBAL EXTRA */
+window.addEventListener("load", () => {
+  document.querySelectorAll("img").forEach(setImageFallback);
+});
 
 /* INIT */
 renderProducts();
