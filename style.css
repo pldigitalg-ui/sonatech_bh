@@ -1407,3 +1407,105 @@ button{
     height:17px;
   }
 }
+/* ===== MELHORIAS MOBILE APP ===== */
+
+/* HEADER MOBILE 2 LINHAS */
+@media (max-width:640px){
+  .nav-wrap{
+    flex-wrap:wrap;
+    gap:10px;
+    padding:10px 0;
+  }
+
+  .brand{
+    width:100%;
+  }
+
+  .header-search{
+    width:100%;
+    height:40px;
+    min-width:unset;
+    border-radius:14px;
+    padding:0 10px;
+  }
+
+  .header-search input{
+    font-size:.85rem;
+  }
+}
+
+/* WHATSAPP REDONDO */
+.floating-whatsapp{
+  width:48px;
+  height:48px;
+  padding:0;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-size:0;
+}
+
+.floating-whatsapp::before{
+  content:"";
+  width:22px;
+  height:22px;
+  background:url('https://cdn-icons-png.flaticon.com/512/733/733585.png') center/contain no-repeat;
+}
+
+/* MENU INFERIOR */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:64px;
+  background:#fff;
+  border-top:1px solid #e3ebf5;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:999;
+  box-shadow:0 -6px 20px rgba(0,0,0,.06);
+}
+
+.bottom-nav button{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:.7rem;
+  font-weight:700;
+}
+
+.bottom-nav svg{
+  width:22px;
+  height:22px;
+}
+
+/* ESPAÇO PRA NÃO COBRIR */
+@media (max-width:640px){
+  body{
+    padding-bottom:80px;
+  }
+}
+
+/* MODAL CENTRAL */
+.product-modal-center{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-40%) scale(.95);
+  width:92%;
+  max-width:420px;
+  background:#fff;
+  border-radius:22px;
+  z-index:1200;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s ease;
+}
+
+.product-modal-center.active{
+  opacity:1;
+  pointer-events:auto;
+  transform:translate(-50%,-50%) scale(1);
+}
