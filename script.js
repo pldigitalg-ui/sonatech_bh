@@ -27,106 +27,226 @@ const products = [
     id: 1,
     category: "Celulares",
     badge: "Mais vendido",
-    name: "Redmi",
+    name: "Xiaomi Redmi Note 13 256GB",
     price: 1499.90,
-    image: "img/produtos/redmi2.jpg"
+    image: "img/produtos/redmi 2.jpg",
+    description: "Celular rápido, bonito e pronto para quem quer desempenho forte no dia a dia sem travar.",
+    shortSpecs: ["Tela 6.67", "Bateria 5000mAh", "256GB"],
+    specs: [
+      "Tela AMOLED de 6.67 polegadas",
+      "Armazenamento de 256GB",
+      "Memória RAM de 8GB",
+      "Bateria de 5000mAh",
+      "Câmera principal de 108MP",
+      "Ideal para redes sociais, vídeos e trabalho"
+    ]
   },
   {
     id: 2,
-    category: "Capinhas",
-    badge: "Proteção",
-    name: "Capinha Transparente",
-    price: 39.90,
-    image: "img/produtos/capinha transparente.jpg"
+    category: "Celulares",
+    badge: "Oferta",
+    name: "Samsung Galaxy A15 128GB",
+    price: 1199.90,
+    image: "img/produtos/android0.jpg",
+    description: "Modelo equilibrado para quem quer bateria boa, tela grande e ótimo custo-benefício.",
+    shortSpecs: ["Tela 6.5", "128GB", "5000mAh"],
+    specs: [
+      "Tela Super AMOLED de 6.5 polegadas",
+      "Armazenamento de 128GB",
+      "Memória RAM de 4GB",
+      "Bateria de 5000mAh",
+      "Câmera tripla",
+      "Ótimo para uso diário e aplicativos"
+    ]
   },
   {
     id: 3,
-    category: "Capinhas",
-    badge: "Premium",
-    name: "Capinha Fosca",
-    price: 44.90,
-    image: "img/produtos/capinha fosca.jpg"
+    category: "Celulares",
+    badge: "Destaque",
+    name: "Motorola Moto G84 256GB",
+    price: 1599.90,
+    image: "img/produtos/redmi.jpg",
+    description: "Celular premium para quem quer velocidade, armazenamento e visual moderno.",
+    shortSpecs: ["256GB", "5G", "RAM 8GB"],
+    specs: [
+      "Tela pOLED de 6.5 polegadas",
+      "Conectividade 5G",
+      "Armazenamento de 256GB",
+      "Memória RAM de 8GB",
+      "Bateria de 5000mAh",
+      "Excelente para produtividade e entretenimento"
+    ]
   },
   {
     id: 4,
-    category: "Capinhas",
-    badge: "Reforçada",
-    name: "Capinha Armor",
-    price: 49.90,
-    image: "img/produtos/capinha armor reforçada.webp"
+    category: "Celulares",
+    badge: "Novo",
+    name: "iPhone 11 128GB",
+    price: 2299.90,
+    image: "img/produtos/redmi 2.jpg",
+    description: "iPhone forte para quem quer câmera de qualidade, desempenho estável e status premium.",
+    shortSpecs: ["128GB", "iOS", "Dupla câmera"],
+    specs: [
+      "Tela Liquid Retina de 6.1 polegadas",
+      "Armazenamento de 128GB",
+      "Face ID",
+      "Processador Apple A13 Bionic",
+      "Dupla câmera traseira",
+      "Excelente para foto, vídeo e redes sociais"
+    ]
   },
   {
     id: 5,
-    category: "Capinhas",
-    badge: "Simples",
-    name: "Capinhas Variadas",
-    price: 29.90,
-    image: "img/produtos/capinhas.jpg"
+    category: "Celulares",
+    badge: "Top custo-benefício",
+    name: "Realme C67 256GB",
+    price: 1299.90,
+    image: "img/produtos/android0.jpg",
+    description: "Celular com muito espaço, bateria forte e ótima fluidez para uso diário.",
+    shortSpecs: ["256GB", "5000mAh", "RAM 8GB"],
+    specs: [
+      "Tela de 6.72 polegadas",
+      "Armazenamento de 256GB",
+      "Memória RAM de 8GB",
+      "Bateria de 5000mAh",
+      "Carregamento rápido",
+      "Perfeito para apps, vídeos e trabalho"
+    ]
   },
   {
     id: 6,
-    category: "Carregadores",
-    badge: "Turbo",
-    name: "Carregador",
-    price: 49.90,
-    image: "img/produtos/carregador 2x.webp"
+    category: "Celulares",
+    badge: "5G",
+    name: "Samsung Galaxy A25 256GB",
+    price: 1699.90,
+    image: "img/produtos/redmi.jpg",
+    description: "Mais velocidade, ótimo espaço interno e desempenho forte para quem usa muito o celular.",
+    shortSpecs: ["5G", "256GB", "AMOLED"],
+    specs: [
+      "Tela Super AMOLED 6.5 polegadas",
+      "Conectividade 5G",
+      "Armazenamento de 256GB",
+      "RAM de 8GB",
+      "Bateria de 5000mAh",
+      "Ideal para uso intenso"
+    ]
   },
   {
     id: 7,
-    category: "Carregadores",
-    badge: "Completo",
-    name: "Carregador com Cabo",
-    price: 69.90,
-    image: "img/produtos/carregador com cabo.jpg"
+    category: "Celulares",
+    badge: "Premium",
+    name: "Xiaomi Poco X6 256GB",
+    price: 1899.90,
+    image: "img/produtos/redmi 2.jpg",
+    description: "Desempenho forte, tela linda e potência para quem quer celular acima da média.",
+    shortSpecs: ["256GB", "AMOLED", "67W"],
+    specs: [
+      "Tela AMOLED de alta taxa de atualização",
+      "Armazenamento de 256GB",
+      "Carregamento rápido de 67W",
+      "Bateria de 5100mAh",
+      "Memória RAM de 8GB",
+      "Ótimo para jogos, edição e multitarefa"
+    ]
   },
+
   {
     id: 8,
-    category: "Acessórios",
-    badge: "Som",
-    name: "Caixa de Som",
-    price: 129.90,
-    image: "img/produtos/caixa de som.webp"
+    category: "Capinhas",
+    badge: "Proteção total",
+    name: "Capinha Anti Impacto Transparente",
+    price: 39.90,
+    image: "img/produtos/capinha transparente.jpg",
+    description: "Proteção reforçada sem esconder o visual do aparelho.",
+    shortSpecs: ["TPU", "Bordas reforçadas", "Transparente"],
+    specs: [
+      "Material TPU flexível",
+      "Bordas reforçadas contra impacto",
+      "Proteção da câmera",
+      "Encaixe firme",
+      "Visual transparente",
+      "Ideal para quem quer proteção e estética"
+    ]
   },
   {
     id: 9,
-    category: "Acessórios",
-    badge: "Cabo",
-    name: "Cabo USB",
-    price: 24.90,
-    image: "img/produtos/cabo de telefone.webp"
+    category: "Capinhas",
+    badge: "Premium",
+    name: "Capinha Premium Silicone Fosca",
+    price: 44.90,
+    image: "img/produtos/capinha fosca.jpg",
+    description: "Toque macio, encaixe perfeito e visual elegante.",
+    shortSpecs: ["Silicone", "Fosca", "Toque macio"],
+    specs: [
+      "Acabamento fosco premium",
+      "Toque macio",
+      "Boa aderência na mão",
+      "Encaixe preciso",
+      "Proteção leve",
+      "Ótima para uso diário"
+    ]
   },
   {
     id: 10,
-    category: "Acessórios",
-    badge: "Suporte",
-    name: "Suporte Veicular",
-    price: 39.90,
-    image: "img/produtos/suporte de telefone.jpg"
+    category: "Capinhas",
+    badge: "Luxo",
+    name: "Capinha MagSafe Premium",
+    price: 59.90,
+    image: "img/produtos/capas.jpg",
+    description: "Capinha moderna com visual premium e encaixe seguro.",
+    shortSpecs: ["Premium", "Magnética", "Acabamento fino"],
+    specs: [
+      "Compatível com acessórios magnéticos",
+      "Acabamento sofisticado",
+      "Bordas elevadas",
+      "Proteção para câmera",
+      "Design fino e elegante",
+      "Ideal para linha premium"
+    ]
   },
   {
     id: 11,
-    category: "Acessórios",
-    badge: "Utilidade",
-    name: "Garrafa Térmica",
-    price: 59.90,
-    image: "img/produtos/garrafa termica.jpg"
+    category: "Capinhas",
+    badge: "Mais vendida",
+    name: "Capinha Armor Reforçada",
+    price: 49.90,
+    image: "img/produtos/capoinha armor reforçada.webp",
+    description: "Proteção mais forte para quem trabalha na rua ou usa muito o aparelho.",
+    shortSpecs: ["Reforçada", "Alta proteção", "Grip firme"],
+    specs: [
+      "Estrutura reforçada",
+      "Maior absorção de impacto",
+      "Pegada firme",
+      "Proteção de cantos",
+      "Visual robusto",
+      "Indicada para uso pesado"
+    ]
   },
   {
     id: 12,
-    category: "Acessórios",
-    badge: "Fone",
-    name: "Fone",
-    price: 29.90,
-    image: "img/produtos/fones com fios.jpg"
-  }
-];
+    category: "Capinhas",
+    badge: "Estilo",
+    name: "Capinha Color Premium",
+    price: 34.90,
+    image: "img/produtos/capas.jpg",
+    description: "Capinha bonita, leve e com acabamento limpo para valorizar o celular.",
+    shortSpecs: ["Colorida", "Leve", "Estilosa"],
+    specs: [
+      "Visual moderno",
+      "Material resistente",
+      "Leveza no uso",
+      "Boa proteção contra riscos",
+      "Várias cores disponíveis",
+      "Excelente para revenda"
+    ]
+  },
   {
     id: 13,
     category: "Capinhas",
     badge: "Executiva",
     name: "Capinha Carteira Flip",
     price: 64.90,
-    image: "img/capinha-carteira.jpg",
+    image: "img/produtos/capas.jpg",
     description: "Modelo elegante para quem quer proteção e praticidade.",
     shortSpecs: ["Flip", "Carteira", "Elegante"],
     specs: [
@@ -144,7 +264,7 @@ const products = [
     badge: "Clássica",
     name: "Capinha Lisa Slim",
     price: 29.90,
-    image: "img/capinha-slim.jpg",
+    image: "img/produtos/capas.jpg",
     description: "Proteção básica com encaixe fino e preço bom para vender rápido.",
     shortSpecs: ["Slim", "Leve", "Preço forte"],
     specs: [
@@ -163,7 +283,7 @@ const products = [
     badge: "Turbo",
     name: "Carregador Turbo 20W USB-C",
     price: 49.90,
-    image: "img/carregador-turbo-20w.jpg",
+    image: "img/produtos/carregador 2x.webp",
     description: "Carregamento rápido para quem quer mais praticidade no dia a dia.",
     shortSpecs: ["20W", "USB-C", "Rápido"],
     specs: [
@@ -181,7 +301,7 @@ const products = [
     badge: "Mais forte",
     name: "Carregador Turbo 33W com Cabo",
     price: 69.90,
-    image: "img/carregador-turbo-33w.jpg",
+    image: "img/produtos/carregador com cabo.jpg",
     description: "Mais potência, mais velocidade e melhor experiência na recarga.",
     shortSpecs: ["33W", "Cabo incluso", "Turbo"],
     specs: [
@@ -200,7 +320,7 @@ const products = [
     badge: "Som forte",
     name: "Caixa de Som Bluetooth Portátil",
     price: 129.90,
-    image: "img/caixa-som-bluetooth.jpg",
+    image: "img/produtos/caixa de som.webp",
     description: "Som forte, conexão rápida e ótimo produto para presente e revenda.",
     shortSpecs: ["Bluetooth", "Portátil", "Som forte"],
     specs: [
@@ -218,7 +338,7 @@ const products = [
     badge: "Essencial",
     name: "Cabo Conector USB-C Reforçado",
     price: 24.90,
-    image: "img/cabo-usbc-reforcado.jpg",
+    image: "img/produtos/cabo de telefone.webp",
     description: "Cabo resistente para carregar com segurança e durar mais.",
     shortSpecs: ["USB-C", "Reforçado", "1 metro"],
     specs: [
@@ -236,7 +356,7 @@ const products = [
     badge: "Prático",
     name: "Suporte Veicular para Telefone",
     price: 39.90,
-    image: "img/suporte-veicular.jpg",
+    image: "img/produtos/suporte de telefone.jpg",
     description: "Mais praticidade e segurança para usar o celular no carro.",
     shortSpecs: ["Veicular", "Ajustável", "Firme"],
     specs: [
@@ -254,7 +374,7 @@ const products = [
     badge: "Utilidade",
     name: "Garrafa Térmica Inox 500ml",
     price: 59.90,
-    image: "img/garrafa-termica-500ml.jpg",
+    image: "img/produtos/garrafa termica.jpg",
     description: "Produto bonito, útil e fácil de vender no balcão.",
     shortSpecs: ["500ml", "Inox", "Térmica"],
     specs: [
@@ -272,7 +392,7 @@ const products = [
     badge: "Áudio",
     name: "Fone Bluetooth Sem Fio Premium",
     price: 89.90,
-    image: "img/fone-bluetooth-premium.jpg",
+    image: "img/produtos/fones grandes.jpg",
     description: "Som limpo, conexão estável e produto que vende bem no impulso.",
     shortSpecs: ["Sem fio", "Bluetooth", "Case"],
     specs: [
@@ -290,7 +410,7 @@ const products = [
     badge: "Clássico",
     name: "Fone com Fio P2",
     price: 29.90,
-    image: "img/fone-com-fio-p2.jpg",
+    image: "img/produtos/fones com fios.jpg",
     description: "Opção simples, útil e barata para quem quer ouvir sem depender de bateria.",
     shortSpecs: ["Com fio", "P2", "Leve"],
     specs: [
