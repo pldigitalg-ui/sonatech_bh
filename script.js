@@ -416,6 +416,7 @@ const headerSearchDesktop = document.getElementById("headerSearchDesktop");
 const headerSearchMobile = document.getElementById("headerSearchMobile");
 
 const cartTrigger = document.getElementById("cartTrigger");
+const cartTriggerBottom = document.getElementById("cartTriggerBottom");
 const cartDrawer = document.getElementById("cartDrawer");
 const cartOverlay = document.getElementById("cartOverlay");
 const closeCart = document.getElementById("closeCart");
@@ -573,10 +574,14 @@ function bindProductButtons() {
   document.querySelectorAll(".product-card").forEach((card) => {
     const id = Number(card.dataset.id);
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (event) => {
       const product = products.find((item) => item.id === id);
       if (!product) return;
-      openModal(product);
+
+      card.classList.add("clicking");
+      setTimeout(() => card.classList.remove("clicking"), 180);
+
+      openModal(product, card, event);
     });
 
     card.addEventListener("keydown", (event) => {
@@ -584,7 +589,7 @@ function bindProductButtons() {
         event.preventDefault();
         const product = products.find((item) => item.id === id);
         if (!product) return;
-        openModal(product);
+        openModal(product, card, event);
       }
     });
   });
@@ -730,7 +735,40 @@ function changeQuantity(index, action) {
 }
 
 /* MODAL */
-function openModal(product) {
+function positionModalFromCard(card) {
+  if (!card || window.innerWidth <= 768) {
+    sideModal.style.top = "";
+    sideModal.style.left = "";
+    sideModal.style.right = "";
+    return;
+  }
+
+  const rect = card.getBoundingClientRect();
+  const modalWidth = Math.min(420, window.innerWidth - 24);
+  const gap = 14;
+  const scrollTop = window.scrollY;
+  const scrollLeft = window.scrollX;
+
+  let left = rect.right + gap + scrollLeft;
+  if (left + modalWidth > scrollLeft + window.innerWidth - 12) {
+    left = rect.left + scrollLeft - modalWidth - gap;
+  }
+  if (left < scrollLeft + 12) {
+    left = scrollLeft + (window.innerWidth - modalWidth) / 2;
+  }
+
+  let top = rect.top + scrollTop;
+  const modalMaxHeight = window.innerHeight - 24;
+  const maxTop = scrollTop + window.innerHeight - modalMaxHeight - 12;
+  if (top > maxTop) top = maxTop;
+  if (top < scrollTop + 12) top = scrollTop + 12;
+
+  sideModal.style.top = `${top}px`;
+  sideModal.style.left = `${left}px`;
+  sideModal.style.right = "auto";
+}
+
+function openModal(product, card = null) {
   selectedProduct = product;
   modalImage.src = product.image;
   modalImage.alt = product.name;
@@ -740,6 +778,7 @@ function openModal(product) {
   modalDescription.textContent = product.description;
   modalSpecs.innerHTML = product.specs.map((spec) => `<li>${spec}</li>`).join("");
 
+  positionModalFromCard(card);
   sideModal.classList.add("active");
   modalOverlay.classList.add("active");
   sideModal.setAttribute("aria-hidden", "false");
@@ -750,6 +789,9 @@ function closeProductModal() {
   sideModal.classList.remove("active");
   modalOverlay.classList.remove("active");
   sideModal.setAttribute("aria-hidden", "true");
+  sideModal.style.top = "";
+  sideModal.style.left = "";
+  sideModal.style.right = "";
 
   if (!cartDrawer.classList.contains("active") && !lightboxOverlay.classList.contains("active")) {
     document.body.style.overflow = "";
@@ -776,6 +818,7 @@ function closeLightbox() {
 
 /* EVENTOS */
 if (cartTrigger) cartTrigger.addEventListener("click", openCart);
+if (cartTriggerBottom) cartTriggerBottom.addEventListener("click", openCart);
 if (closeCart) closeCart.addEventListener("click", closeCartDrawer);
 if (cartOverlay) cartOverlay.addEventListener("click", closeCartDrawer);
 
@@ -801,6 +844,14 @@ if (lightboxOverlay) {
     }
   });
 }
+
+window.addEventListener("resize", () => {
+  if (sideModal.classList.contains("active")) {
+    sideModal.style.top = "";
+    sideModal.style.left = "";
+    sideModal.style.right = "";
+  }
+});
 
 document.addEventListener("click", (event) => {
   const target = event.target;
