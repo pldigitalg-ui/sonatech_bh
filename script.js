@@ -1,26 +1,6 @@
 const WHATSAPP_NUMBER = "553183209688";
 
-const PLACEHOLDER_IMAGE =
-  "data:image/svg+xml;charset=UTF-8," +
-  encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
-      <defs>
-        <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0%" stop-color="#eef4fb"/>
-          <stop offset="100%" stop-color="#dbe7f5"/>
-        </linearGradient>
-      </defs>
-      <rect width="800" height="800" fill="url(#g)"/>
-      <rect x="170" y="120" width="460" height="560" rx="36" fill="#ffffff" stroke="#cfdcec" stroke-width="10"/>
-      <rect x="230" y="190" width="340" height="260" rx="22" fill="#eaf2fb"/>
-      <circle cx="400" cy="260" r="54" fill="#bfd4ea"/>
-      <path d="M290 420c28-52 72-86 110-86 38 0 81 34 110 86" fill="#bfd4ea"/>
-      <rect x="245" y="510" width="310" height="22" rx="11" fill="#d5e2f0"/>
-      <rect x="275" y="552" width="250" height="18" rx="9" fill="#dfe9f4"/>
-      <rect x="310" y="590" width="180" height="18" rx="9" fill="#dfe9f4"/>
-      <text x="400" y="665" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#6b7c93">Imagem em breve</text>
-    </svg>
-  `);
+const PLACEHOLDER_IMAGE = "img/produtos/PLACEHOLDER_IMAGE.jpg";
 
 const products = [
   {
@@ -29,7 +9,7 @@ const products = [
     badge: "Mais vendido",
     name: "Xiaomi Redmi Note 13 256GB",
     price: 1499.90,
-    image: "img/produtos/redmi 2.jpg",
+    image: "img/produtos/redmiddd.jpg",
     description: "Celular rápido, bonito e pronto para quem quer desempenho forte no dia a dia sem travar.",
     shortSpecs: ["Tela 6.67", "Bateria 5000mAh", "256GB"],
     specs: [
@@ -47,7 +27,7 @@ const products = [
     badge: "Oferta",
     name: "Samsung Galaxy A15 128GB",
     price: 1199.90,
-    image: "img/produtos/android0.jpg",
+    image: "img/produtos/android.jpg",
     description: "Modelo equilibrado para quem quer bateria boa, tela grande e ótimo custo-benefício.",
     shortSpecs: ["Tela 6.5", "128GB", "5000mAh"],
     specs: [
@@ -65,7 +45,7 @@ const products = [
     badge: "Destaque",
     name: "Motorola Moto G84 256GB",
     price: 1599.90,
-    image: "img/produtos/redmi.jpg",
+    image: "img/produtos/motorolo4.jpg",
     description: "Celular premium para quem quer velocidade, armazenamento e visual moderno.",
     shortSpecs: ["256GB", "5G", "RAM 8GB"],
     specs: [
@@ -83,7 +63,7 @@ const products = [
     badge: "Novo",
     name: "iPhone 11 128GB",
     price: 2299.90,
-    image: "img/produtos/redmi 2.jpg",
+    image: "img/produtos/redmiddd.jpg",
     description: "iPhone forte para quem quer câmera de qualidade, desempenho estável e status premium.",
     shortSpecs: ["128GB", "iOS", "Dupla câmera"],
     specs: [
@@ -101,7 +81,7 @@ const products = [
     badge: "Top custo-benefício",
     name: "Realme C67 256GB",
     price: 1299.90,
-    image: "img/produtos/android0.jpg",
+    image: "img/produtos/android.jpg",
     description: "Celular com muito espaço, bateria forte e ótima fluidez para uso diário.",
     shortSpecs: ["256GB", "5000mAh", "RAM 8GB"],
     specs: [
@@ -119,7 +99,7 @@ const products = [
     badge: "5G",
     name: "Samsung Galaxy A25 256GB",
     price: 1699.90,
-    image: "img/produtos/redmi.jpg",
+    image: "img/produtos/motorolo4.jpg",
     description: "Mais velocidade, ótimo espaço interno e desempenho forte para quem usa muito o celular.",
     shortSpecs: ["5G", "256GB", "AMOLED"],
     specs: [
@@ -137,7 +117,7 @@ const products = [
     badge: "Premium",
     name: "Xiaomi Poco X6 256GB",
     price: 1899.90,
-    image: "img/produtos/redmi 2.jpg",
+    image: "img/produtos/redmiddd.jpg",
     description: "Desempenho forte, tela linda e potência para quem quer celular acima da média.",
     shortSpecs: ["256GB", "AMOLED", "67W"],
     specs: [
@@ -210,7 +190,7 @@ const products = [
     badge: "Mais vendida",
     name: "Capinha Armor Reforçada",
     price: 49.90,
-    image: "img/produtos/capoinha armor reforçada.webp",
+    image: "img/produtos/capoinmha armadura reforçada.webp",
     description: "Proteção mais forte para quem trabalha na rua ou usa muito o aparelho.",
     shortSpecs: ["Reforçada", "Alta proteção", "Grip firme"],
     specs: [
@@ -281,17 +261,17 @@ const products = [
     id: 15,
     category: "Carregadores",
     badge: "Turbo",
-    name: "Carregador Turbo 20W USB-C",
+    name: "Carregador Turbo 22W",
     price: 49.90,
-    image: "img/produtos/carregador 2x.webp",
+    image: "img/produtos/carregador 22w.webp",
     description: "Carregamento rápido para quem quer mais praticidade no dia a dia.",
-    shortSpecs: ["20W", "USB-C", "Rápido"],
+    shortSpecs: ["22W", "USB", "Rápido"],
     specs: [
-      "Potência de 20W",
+      "Potência de 22W",
       "Entrada bivolt",
-      "Saída USB-C",
       "Carregamento rápido",
       "Compacto",
+      "Boa durabilidade",
       "Ideal para uso diário"
     ]
   },
@@ -299,18 +279,18 @@ const products = [
     id: 16,
     category: "Carregadores",
     badge: "Mais forte",
-    name: "Carregador Turbo 33W com Cabo",
+    name: "Carregador com Cabo",
     price: 69.90,
     image: "img/produtos/carregador com cabo.jpg",
     description: "Mais potência, mais velocidade e melhor experiência na recarga.",
-    shortSpecs: ["33W", "Cabo incluso", "Turbo"],
+    shortSpecs: ["Cabo incluso", "Turbo", "Prático"],
     specs: [
-      "Potência de 33W",
       "Acompanha cabo",
       "Carregamento rápido",
       "Proteção contra sobrecarga",
       "Boa durabilidade",
-      "Excelente custo-benefício"
+      "Excelente custo-benefício",
+      "Ideal para uso diário"
     ]
   },
 
@@ -336,27 +316,27 @@ const products = [
     id: 18,
     category: "Acessórios",
     badge: "Essencial",
-    name: "Cabo Conector USB-C Reforçado",
+    name: "Cabo de Telefone",
     price: 24.90,
     image: "img/produtos/cabo de telefone.webp",
     description: "Cabo resistente para carregar com segurança e durar mais.",
-    shortSpecs: ["USB-C", "Reforçado", "1 metro"],
+    shortSpecs: ["Reforçado", "Boa saída", "Prático"],
     specs: [
-      "Conector USB-C",
       "Cabo reforçado",
-      "Comprimento de 1 metro",
       "Boa transferência de energia",
       "Maior resistência",
-      "Item de alta saída"
+      "Item de alta saída",
+      "Uso diário",
+      "Excelente para balcão"
     ]
   },
   {
     id: 19,
     category: "Acessórios",
     badge: "Prático",
-    name: "Suporte Veicular para Telefone",
+    name: "Suporte de Telefone",
     price: 39.90,
-    image: "img/produtos/suporte de telefone.jpg",
+    image: "img/produtos/supote de telefone.jpg",
     description: "Mais praticidade e segurança para usar o celular no carro.",
     shortSpecs: ["Veicular", "Ajustável", "Firme"],
     specs: [
@@ -372,54 +352,54 @@ const products = [
     id: 20,
     category: "Acessórios",
     badge: "Utilidade",
-    name: "Garrafa Térmica Inox 500ml",
+    name: "Garrafa Térmica",
     price: 59.90,
-    image: "img/produtos/garrafa termica.jpg",
+    image: "img/produtos/garrafa térmica.jpg",
     description: "Produto bonito, útil e fácil de vender no balcão.",
-    shortSpecs: ["500ml", "Inox", "Térmica"],
+    shortSpecs: ["Térmica", "Prática", "Bonita"],
     specs: [
-      "Capacidade de 500ml",
-      "Corpo em inox",
       "Mantém temperatura por mais tempo",
       "Boa vedação",
       "Visual moderno",
-      "Ótima opção para utilidades"
+      "Ótima opção para utilidades",
+      "Boa saída no balcão",
+      "Uso diário"
     ]
   },
   {
     id: 21,
     category: "Acessórios",
     badge: "Áudio",
-    name: "Fone Bluetooth Sem Fio Premium",
+    name: "Fone Bluetooth Premium",
     price: 89.90,
     image: "img/produtos/fones grandes.jpg",
     description: "Som limpo, conexão estável e produto que vende bem no impulso.",
-    shortSpecs: ["Sem fio", "Bluetooth", "Case"],
+    shortSpecs: ["Bluetooth", "Sem fio", "Som limpo"],
     specs: [
       "Conexão Bluetooth estável",
-      "Case para recarga",
       "Som limpo",
       "Design moderno",
       "Boa autonomia de bateria",
-      "Ótimo para música e chamadas"
+      "Ótimo para música e chamadas",
+      "Visual premium"
     ]
   },
   {
     id: 22,
     category: "Acessórios",
     badge: "Clássico",
-    name: "Fone com Fio P2",
+    name: "Fone com Fio",
     price: 29.90,
     image: "img/produtos/fones com fios.jpg",
     description: "Opção simples, útil e barata para quem quer ouvir sem depender de bateria.",
-    shortSpecs: ["Com fio", "P2", "Leve"],
+    shortSpecs: ["Com fio", "Leve", "Econômico"],
     specs: [
-      "Conector P2",
       "Som claro",
       "Leve e confortável",
-      "Microfone integrado",
       "Boa opção econômica",
-      "Produto de fácil saída"
+      "Produto de fácil saída",
+      "Uso diário",
+      "Prático"
     ]
   }
 ];
@@ -482,10 +462,19 @@ function safeImage(path) {
 
 function setImageFallback(img) {
   if (!img) return;
-  img.onerror = function () {
-    this.onerror = null;
-    this.src = PLACEHOLDER_IMAGE;
+
+  const applyFallback = () => {
+    if (img.src !== PLACEHOLDER_IMAGE) {
+      img.onerror = null;
+      img.src = PLACEHOLDER_IMAGE;
+    }
   };
+
+  img.onerror = applyFallback;
+
+  if (img.complete && img.naturalWidth === 0) {
+    applyFallback();
+  }
 }
 
 function lockBodyScroll() {
